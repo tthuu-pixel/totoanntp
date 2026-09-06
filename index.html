@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Góc Toán học — Tổ Toán, Trường THCS Nguyễn Tri Phương, Phường Diên Hồng, Thành phố Hồ Chí Minh. Văn bản, kho học liệu số, chuyên đề, hình ảnh hoạt động và Không gian văn hóa Hồ Chí Minh.">
+<title>Góc Toán học NTP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<style>
+/* ═══════════ 1. MÀU NỀN TẢNG (tông sáng) ═══════════ */
+:root{
+  --nen:#FFFFFF; --nen-2:#F6F9FC; --nen-3:#EDF2F7;
+  --vien:#DFE7EF; --vien-mo:#EDF2F7;
+  --muc:#101E2B; --muc-2:#41586E; --muc-3:#7590A6;
+  --bong:0 1px 2px rgba(16,30,43,.05), 0 10px 28px -18px rgba(16,30,43,.3);
+  --bong-2:0 2px 8px rgba(16,30,43,.07), 0 20px 44px -24px rgba(16,30,43,.36);
+
+  /* màu chủ đạo trường - dùng cho đầu trang, hero, chân trang */
+  --xanh:#1A70B8; --xanh-dam:#0B4A7E; --xanh-mo:#EBF3FB; --xanh-vien:#C4DCF1;
+
+  /* mỗi khu vực một sắc riêng - mặc định là xanh trường */
+  --sac:#1A70B8; --sac-dam:#0B4A7E; --sac-mo:#EDF4FB; --sac-vien:#C9DFF3; --sac-nhat:#F7FAFE;
+}
+.s-vanban  {--sac:#1A70B8;--sac-dam:#0A4676;--sac-mo:#EAF3FB;--sac-vien:#C2DBF0;--sac-nhat:#F6FAFE}
+.s-hoclieu {--sac:#0C7A60;--sac-dam:#06503E;--sac-mo:#E7F5F1;--sac-vien:#B6DFD2;--sac-nhat:#F5FBF9}
+.s-chuyende{--sac:#7143BC;--sac-dam:#4B2A82;--sac-mo:#F1EBFB;--sac-vien:#D8C7F0;--sac-nhat:#FAF7FE}
+.s-hinhanh {--sac:#B4670A;--sac-dam:#7D4705;--sac-mo:#FCF2E3;--sac-vien:#EDD3AC;--sac-nhat:#FEFAF4}
+.s-hcm     {--sac:#BB0F29;--sac-dam:#84081C;--sac-mo:#FBF3E5;--sac-vien:#EBD3A8;--sac-nhat:#FDF9F1}
+.s-to      {--sac:#0D6A8C;--sac-dam:#084A63;--sac-mo:#E8F4F9;--sac-vien:#BBDDEB;--sac-nhat:#F5FBFD}
+
+/* ═══════════ 2. NỀN TẢNG ═══════════ */
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--nen);color:var(--muc);
+  font-family:"Be Vietnam Pro",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+img{max-width:100%;display:block}
+.kh{max-width:1160px;margin:0 auto;padding:0 26px}
+h1,h2,h3,h4{margin:0;text-wrap:balance;letter-spacing:-.015em}
+.serif{font-family:Newsreader,Georgia,serif}
+
+.nhan{
+  display:inline-flex;align-items:center;gap:9px;
+  font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--sac);margin-bottom:13px;
+}
+.nhan::before{content:"";width:24px;height:2px;background:currentColor;border-radius:2px}
+
+.dau-muc{display:flex;align-items:flex-end;justify-content:space-between;gap:26px;flex-wrap:wrap;margin-bottom:28px}
+.dau-muc h2{font-family:Newsreader,Georgia,serif;font-weight:600;font-size:clamp(27px,3.4vw,35px);line-height:1.2}
+.dau-muc p{margin:8px 0 0;color:var(--muc-2);font-size:16.5px;max-width:58ch}
+
+.lienket{
+  display:inline-flex;align-items:center;gap:8px;white-space:nowrap;
+  font-size:15.5px;font-weight:600;color:var(--sac);text-decoration:none;
+  padding:8px 0;border-bottom:2px solid transparent;transition:border-color .18s;
+}
+.lienket:hover{border-bottom-color:var(--sac)}
+.lienket svg{width:16px;height:16px;flex:none}
+
+section{padding:64px 0}
+section.nen-sac{background:var(--sac-nhat);border-top:1px solid var(--sac-vien);border-bottom:1px solid var(--sac-vien)}
+
+/* ═══════════ 3. ĐẦU TRANG ═══════════ */
+header.top{position:sticky;top:0;z-index:60;background:var(--nen);border-bottom:1px solid var(--vien)}
+.top-in{display:flex;align-items:center;gap:18px;height:76px}
+.hieu{display:flex;align-items:center;gap:13px;text-decoration:none;flex:none}
+.hieu img{width:46px;height:auto;flex:none}
+.hieu b{display:block;font-family:Newsreader,Georgia,serif;font-size:20px;font-weight:600;line-height:1.15;letter-spacing:-.01em}
+.hieu span span{display:block;font-size:12.5px;color:var(--muc-3);letter-spacing:.01em}
+nav.chinh{margin-left:auto;display:flex;gap:2px}
+nav.chinh a{
+  font-size:15.5px;font-weight:500;color:var(--muc-2);text-decoration:none;
+  padding:9px 13px;border-radius:8px;transition:color .16s,background .16s;white-space:nowrap;
+}
+nav.chinh a:hover{color:var(--xanh);background:var(--xanh-mo)}
+nav.chinh a.dang{color:var(--xanh);background:var(--xanh-mo);font-weight:600}
+.nut-qt{
+  flex:none;font-size:15px;font-weight:600;color:#fff;background:var(--xanh);
+  padding:11px 18px;border-radius:9px;text-decoration:none;border:1px solid var(--xanh);
+  transition:background .18s;
+}
+.nut-qt:hover{background:var(--xanh-dam);border-color:var(--xanh-dam)}
+.mo-menu{display:none;margin-left:auto;background:none;border:1px solid var(--vien);
+  border-radius:9px;padding:9px 13px;color:var(--muc);cursor:pointer;font:inherit;font-size:15px}
+
+/* ═══════════ 4. HERO (trang tổng quan) ═══════════ */
+.hero{background:var(--xanh-mo);border-bottom:1px solid var(--xanh-vien)}
+.hero-in{display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:52px;align-items:center;padding:66px 0 62px}
+.hero h1{font-family:Newsreader,Georgia,serif;font-weight:600;font-size:clamp(37px,5.4vw,58px);line-height:1.07;margin-bottom:20px}
+.hero h1 em{font-style:normal;color:var(--xanh-dam)}
+.hero p.dek{font-size:19px;color:var(--muc-2);max-width:50ch;margin:0 0 30px}
+.hero-nut{display:flex;gap:13px;flex-wrap:wrap}
+.nut{display:inline-flex;align-items:center;gap:10px;font-size:16px;font-weight:600;
+  text-decoration:none;padding:13px 22px;border-radius:10px;transition:all .18s;border:1px solid transparent;cursor:pointer}
+.nut svg{width:17px;height:17px}
+.nut.dac{background:var(--xanh);color:#fff;border-color:var(--xanh);box-shadow:var(--bong)}
+.nut.dac:hover{background:var(--xanh-dam);border-color:var(--xanh-dam)}
+.nut.vien{border-color:var(--xanh-vien);color:var(--xanh-dam);background:var(--nen)}
+.nut.vien:hover{border-color:var(--xanh)}
+.hero-hinh svg{width:100%;height:auto;display:block;filter:drop-shadow(0 12px 28px rgba(11,74,126,.14))}
+
+/* dải số liệu */
+.solieu{display:flex;flex-wrap:wrap;background:var(--nen);border-bottom:1px solid var(--vien)}
+.solieu div{flex:1 1 160px;padding:22px 26px;border-right:1px solid var(--vien-mo)}
+.solieu div:last-child{border-right:0}
+.solieu dt{font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muc-3);font-weight:600}
+.solieu dd{margin:3px 0 0;font-family:Newsreader,Georgia,serif;font-weight:600;font-size:34px;
+  line-height:1.1;color:var(--sac);font-variant-numeric:tabular-nums}
+.solieu div:nth-child(1){--sac:#1A70B8}
+.solieu div:nth-child(2){--sac:#0C7A60}
+.solieu div:nth-child(3){--sac:#7143BC}
+.solieu div:nth-child(4){--sac:#B4670A}
+
+/* ═══════════ 5. THÔNG BÁO ═══════════ */
+.tb{background:var(--nen-2);border-bottom:1px solid var(--vien)}
+.tb-in{display:flex;align-items:center;gap:15px;padding:13px 0;font-size:16px}
+.tb-nhan{flex:none;display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--xanh);
+  padding:5px 11px 6px;border-radius:6px;line-height:1.35}
+.tb-in span.chu{color:var(--muc-2);min-width:0}
+
+/* ═══════════ 6. Ô TRUY CẬP NHANH ═══════════ */
+.o-luoi{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.o{display:flex;flex-direction:column;gap:11px;text-decoration:none;padding:26px 24px 22px;
+  border-radius:14px;background:var(--sac-mo);border:1px solid var(--sac-vien);
+  transition:transform .2s,box-shadow .2s}
+.o:hover{transform:translateY(-3px);box-shadow:var(--bong-2)}
+.o .ic{width:38px;height:38px;color:var(--sac)}
+.o .ic svg{width:100%;height:100%;stroke:currentColor;fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.o b{font-size:19px;font-weight:600;letter-spacing:-.01em;color:var(--sac-dam)}
+.o small{font-size:15.5px;color:var(--muc-2);line-height:1.55}
+.o .di{margin-top:auto;padding-top:12px;font-size:14.5px;font-weight:600;color:var(--sac)}
+
+/* ═══════════ 7. VĂN BẢN ═══════════ */
+.vb-ds{border:1px solid var(--sac-vien);border-radius:14px;overflow:hidden;background:var(--nen)}
+.vb{display:grid;grid-template-columns:210px minmax(0,1fr) 130px;gap:22px;align-items:center;
+  padding:18px 22px;border-bottom:1px solid var(--vien-mo);text-decoration:none;transition:background .16s}
+.vb:last-child{border-bottom:0}
+.vb:hover{background:var(--sac-nhat)}
+.vb-so{font-family:"IBM Plex Mono","Be Vietnam Pro",monospace;font-size:14px;color:var(--sac);font-weight:500}
+.vb-ty{font-size:16.5px;font-weight:500;line-height:1.45}
+.vb-cq{display:block;font-size:14px;color:var(--muc-3);margin-top:4px}
+.vb-ng{font-size:14.5px;color:var(--muc-2);text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* ═══════════ 8. THẺ HỌC LIỆU / CHUYÊN ĐỀ ═══════════ */
+.luoi3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.the-hl{display:flex;flex-direction:column;gap:12px;text-decoration:none;background:var(--nen);
+  border:1px solid var(--sac-vien);border-radius:14px;padding:22px;transition:box-shadow .2s,transform .2s}
+.the-hl:hover{box-shadow:var(--bong-2);transform:translateY(-2px)}
+.hang-the{display:flex;gap:8px;flex-wrap:wrap}
+.nhan-o{font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:6px;
+  background:var(--sac-mo);color:var(--sac-dam);white-space:nowrap}
+.nhan-o.xam{background:var(--nen-3);color:var(--muc-2)}
+.the-hl b{font-size:18px;font-weight:600;line-height:1.35;letter-spacing:-.01em}
+.the-hl p{margin:0;font-size:15.5px;color:var(--muc-2);line-height:1.55}
+.the-hl .chan{margin-top:auto;padding-top:13px;border-top:1px solid var(--vien-mo);
+  display:flex;justify-content:space-between;align-items:center;font-size:14px;color:var(--muc-3)}
+
+/* ═══════════ 9. CHUYÊN ĐỀ ═══════════ */
+.cd-lon{background:var(--nen);border:1px solid var(--sac-vien);border-radius:16px;padding:34px;box-shadow:var(--bong)}
+.cd-lon h3{font-family:Newsreader,Georgia,serif;font-size:29px;font-weight:600;line-height:1.24;margin-bottom:13px;color:var(--sac-dam)}
+.cd-lon p{margin:0 0 20px;color:var(--muc-2);font-size:17px}
+.cd-meta{display:flex;flex-wrap:wrap;gap:20px;font-size:14.5px;color:var(--muc-3)}
+.cd-meta b{color:var(--muc-2);font-weight:600}
+.bai{background:var(--nen);border:1px solid var(--sac-vien);border-radius:14px;padding:26px 28px;margin-bottom:16px;text-decoration:none;display:block;transition:box-shadow .2s}
+.bai:hover{box-shadow:var(--bong-2)}
+.bai h3{font-family:Newsreader,Georgia,serif;font-size:23px;font-weight:600;line-height:1.3;margin-bottom:8px;color:var(--sac-dam)}
+.bai p{margin:0 0 12px;color:var(--muc-2);font-size:16px}
+.noidung-bai{font-size:17.5px;line-height:1.78;max-width:70ch}
+.noidung-bai p{margin:0 0 16px}
+
+/* ═══════════ 10. TRÌNH CHIẾU ẢNH ═══════════ */
+.slide{position:relative;border-radius:16px;overflow:hidden;background:var(--sac-mo);
+  border:1px solid var(--sac-vien);box-shadow:var(--bong)}
+.slide-khung{position:relative;aspect-ratio:16/9;max-height:min(60vh,520px);background:var(--nen-3)}
+.slide-khung img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  opacity:0;transition:opacity .45s ease}
+.slide-khung img.hien{opacity:1}
+.slide-chu{
+  position:absolute;left:0;right:0;bottom:0;padding:56px 26px 22px;color:#fff;
+  background:linear-gradient(to top, rgba(8,16,24,.86), rgba(8,16,24,.45) 55%, transparent);
+}
+.slide-chu b{display:block;font-size:20px;font-weight:600;line-height:1.35;margin-bottom:4px}
+.slide-chu span{font-size:14.5px;opacity:.88}
+.slide-nut{
+  position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;
+  background:rgba(255,255,255,.92);border:1px solid var(--sac-vien);color:var(--sac-dam);
+  display:grid;place-items:center;cursor:pointer;transition:background .18s,transform .18s;
+  box-shadow:0 3px 12px rgba(8,16,24,.22);
+}
+.slide-nut:hover{background:#fff;transform:translateY(-50%) scale(1.06)}
+.slide-nut svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.slide-nut.truoc{left:16px}
+.slide-nut.sau{right:16px}
+.slide-dem{position:absolute;top:16px;right:18px;background:rgba(8,16,24,.6);color:#fff;
+  font-size:13.5px;font-weight:600;padding:5px 12px;border-radius:20px;font-variant-numeric:tabular-nums}
+.slide-cham{display:flex;justify-content:center;gap:9px;padding:16px}
+.cham{width:9px;height:9px;border-radius:50%;background:var(--sac-vien);border:0;padding:0;
+  cursor:pointer;transition:all .2s}
+.cham.dang{background:var(--sac);width:26px;border-radius:6px}
+.luoi-anh{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:22px}
+.luoi-anh button{padding:0;border:1px solid var(--sac-vien);border-radius:10px;overflow:hidden;
+  cursor:pointer;background:none;aspect-ratio:16/10;transition:border-color .18s,transform .18s}
+.luoi-anh button:hover{transform:translateY(-2px)}
+.luoi-anh button.dang{border-color:var(--sac);border-width:2px}
+.luoi-anh img{width:100%;height:100%;object-fit:cover}
+
+/* ═══════════ 11. KHÔNG GIAN VĂN HÓA HỒ CHÍ MINH ═══════════ */
+.hcm-nen{background:var(--sac-mo);border-top:1px solid var(--sac-vien);border-bottom:1px solid var(--sac-vien)}
+.trichdan{margin:38px 0;padding:6px 0 6px 32px;border-left:4px solid var(--sac)}
+.trichdan q{display:block;font-family:Newsreader,Georgia,serif;font-style:italic;quotes:none;
+  font-size:clamp(22px,3vw,30px);line-height:1.42;color:var(--sac-dam)}
+.trichdan cite{display:block;margin-top:15px;font-style:normal;font-size:14.5px;color:var(--muc-2)}
+.namdieu{display:grid;grid-template-columns:repeat(5,1fr);gap:15px}
+.dieu{background:var(--nen);border:1px solid var(--sac-vien);border-radius:12px;
+  padding:20px 18px;display:flex;flex-direction:column;gap:10px}
+.dieu .stt{font-family:Newsreader,Georgia,serif;font-size:29px;font-weight:600;line-height:1;color:var(--sac)}
+.dieu p{margin:0;font-size:16px;font-weight:500;line-height:1.42}
+.moc{display:flex;gap:24px;align-items:flex-start;background:var(--nen);
+  border:1px solid var(--sac-vien);border-radius:12px;padding:22px 24px;margin-top:16px}
+.moc .nam{font-family:Newsreader,Georgia,serif;font-size:33px;font-weight:600;color:var(--sac);
+  line-height:1;flex:none;font-variant-numeric:tabular-nums}
+.moc b{display:block;font-size:17.5px;font-weight:600;margin-bottom:5px}
+.moc span{font-size:16px;color:var(--muc-2)}
+
+/* ═══════════ 12. GIÁO VIÊN ═══════════ */
+.gv-ds{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.gv{display:flex;align-items:center;gap:15px;background:var(--nen);
+  border:1px solid var(--sac-vien);border-radius:12px;padding:16px 20px 16px 16px}
+.gv .anh{width:52px;height:52px;border-radius:50%;flex:none;display:grid;place-items:center;
+  background:var(--sac-mo);color:var(--sac-dam);font-weight:600;font-size:18px;border:1px solid var(--sac-vien)}
+.gv img.anh{object-fit:cover}
+.gv b{display:block;font-size:16.5px;font-weight:600;line-height:1.3}
+.gv span{display:block;font-size:14.5px;color:var(--muc-3)}
+
+/* ═══════════ 13. BỘ LỌC ═══════════ */
+.loc{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:24px;
+  background:var(--nen);border:1px solid var(--sac-vien);border-radius:12px;padding:16px 18px}
+.loc input[type=search],.loc select{
+  font:inherit;font-size:15.5px;color:var(--muc);background:var(--nen);
+  border:1px solid var(--vien);border-radius:9px;padding:10px 13px;min-width:0;
+}
+.loc input[type=search]{flex:1 1 260px}
+.loc select{flex:0 1 auto;cursor:pointer}
+.loc input:focus,.loc select:focus{outline:2px solid var(--sac);outline-offset:1px;border-color:var(--sac)}
+.loc .ketqua{margin-left:auto;font-size:14.5px;color:var(--muc-3);white-space:nowrap}
+
+/* ═══════════ 14. TIÊU ĐỀ TRANG CON ═══════════ */
+.dau-trang{background:var(--sac-mo);border-bottom:1px solid var(--sac-vien);padding:48px 0 44px}
+.dau-trang h1{font-family:Newsreader,Georgia,serif;font-size:clamp(31px,4.4vw,44px);
+  font-weight:600;line-height:1.13;color:var(--sac-dam)}
+.dau-trang p{margin:12px 0 0;font-size:17.5px;color:var(--muc-2);max-width:64ch}
+.duong{display:flex;gap:9px;align-items:center;font-size:14.5px;color:var(--muc-3);margin-bottom:14px}
+.duong a{text-decoration:none;color:var(--sac)}
+.duong a:hover{text-decoration:underline}
+
+/* ═══════════ 15. CHÂN TRANG ═══════════ */
+footer.chan{background:var(--nen-2);border-top:1px solid var(--vien);padding:52px 0 32px;font-size:16px}
+.chan-luoi{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:44px}
+.chan h5{margin:0 0 14px;font-size:12.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--muc-3);font-weight:600}
+.chan ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:9px}
+.chan a{color:var(--muc-2);text-decoration:none}
+.chan a:hover{color:var(--xanh)}
+.chan-hieu{display:flex;gap:16px;align-items:flex-start}
+.chan-hieu img{width:56px;height:auto;flex:none}
+.chan-hieu b{display:block;font-family:Newsreader,Georgia,serif;font-size:19px;font-weight:600}
+.chan-hieu p{margin:6px 0 0;color:var(--muc-2);font-size:15.5px;line-height:1.6}
+.chan-day{margin-top:38px;padding-top:20px;border-top:1px solid var(--vien);
+  display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;font-size:14px;color:var(--muc-3)}
+#nguon{display:inline-flex;align-items:center;gap:7px}
+#nguon i{width:8px;height:8px;border-radius:50%;background:var(--muc-3);display:inline-block}
+#nguon.live i{background:#12A56C}
+
+/* ═══════════ 16. CHUNG ═══════════ */
+.rong{padding:34px;text-align:center;color:var(--muc-3);margin:0;font-size:16px;
+  border:1px dashed var(--sac-vien);border-radius:14px;background:var(--sac-nhat)}
+.ghichu{font-size:14.5px;color:var(--muc-3);margin:14px 0 0;display:flex;gap:8px;align-items:flex-start}
+a:focus-visible,button:focus-visible,select:focus-visible{outline:2px solid var(--sac);outline-offset:3px;border-radius:4px}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+
+#toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(12px);
+  background:var(--muc);color:#fff;padding:13px 22px;border-radius:10px;font-size:15.5px;
+  font-weight:500;box-shadow:var(--bong-2);opacity:0;pointer-events:none;
+  transition:opacity .22s,transform .22s;z-index:90;max-width:88vw}
+#toast.hien{opacity:1;transform:translateX(-50%) translateY(0)}
+
+@media (max-width:1040px){
+  .hero-in{grid-template-columns:1fr;gap:34px;padding:52px 0}
+  .hero-hinh{max-width:440px}
+  .o-luoi{grid-template-columns:repeat(2,1fr)}
+  .luoi3{grid-template-columns:repeat(2,1fr)}
+  .namdieu{grid-template-columns:repeat(2,1fr)}
+  .gv-ds{grid-template-columns:repeat(2,1fr)}
+  .luoi-anh{grid-template-columns:repeat(3,1fr)}
+  .chan-luoi{grid-template-columns:1fr 1fr;gap:32px}
+  .chan-hieu{grid-column:1/-1}
+}
+@media (max-width:760px){
+  body{font-size:16.5px}
+  nav.chinh{display:none;position:absolute;top:76px;left:0;right:0;background:var(--nen);
+    border-bottom:1px solid var(--vien);flex-direction:column;padding:12px 18px 18px;gap:2px;box-shadow:var(--bong-2)}
+  nav.chinh.mo{display:flex}
+  .mo-menu{display:block}
+  .nut-qt{display:none}
+  .o-luoi,.luoi3,.namdieu,.gv-ds{grid-template-columns:1fr}
+  .luoi-anh{grid-template-columns:repeat(2,1fr)}
+  .vb{grid-template-columns:1fr;gap:7px;padding:16px 18px}
+  .vb-ng{text-align:left}
+  .chan-luoi{grid-template-columns:1fr}
+  section{padding:46px 0}
+  .slide-nut{width:38px;height:38px}
+  .slide-nut.truoc{left:10px}.slide-nut.sau{right:10px}
+  .slide-chu{padding:44px 18px 18px}
+  .slide-chu b{font-size:17px}
+  .loc .ketqua{margin-left:0;width:100%}
+}
+</style>
+</head>
+<body>
+
+
+<header class="top">
+  <div class="kh top-in">
+    <a class="hieu" href="#/">
+      <img src="data:image/png;base64,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" alt="Logo Trường THCS Nguyễn Tri Phương">
+      <span>
+        <b>Góc Toán học</b>
+        <span>Tổ Toán · THCS Nguyễn Tri Phương</span>
+      </span>
+    </a>
+    <button class="mo-menu" id="btnMenu" aria-expanded="false" aria-controls="navChinh">Mục lục</button>
+    <nav class="chinh" id="navChinh"></nav>
+    <a class="nut-qt" href="#" id="nutQT">Đăng nhập quản trị</a>
+  </div>
+</header>
+
+<main id="app"></main>
+
+<footer class="chan">
+  <div class="kh">
+    <div class="chan-luoi">
+      <div class="chan-hieu">
+        <img src="data:image/png;base64,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" alt="">
+        <div>
+          <b>Góc Toán học</b>
+          <p>Tổ Toán — Trường THCS Nguyễn Tri Phương<br>Phường Diên Hồng, Thành phố Hồ Chí Minh</p>
+        </div>
+      </div>
+      <div>
+        <h5>Nội dung</h5>
+        <ul>
+          <li><a href="#/vanban">Văn bản</a></li>
+          <li><a href="#/hoclieu">Kho học liệu số</a></li>
+          <li><a href="#/chuyende">Chuyên đề</a></li>
+          <li><a href="#/hinhanh">Hình ảnh hoạt động</a></li>
+          <li><a href="#/hcm">Không gian văn hóa Hồ Chí Minh</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Dành cho thầy cô</h5>
+        <ul>
+          <li><a href="#" id="nutQT2">Đăng nhập quản trị</a></li>
+          <li><a href="#/hoclieu">Đóng góp học liệu</a></li>
+          <li><a href="#/to">Thành viên tổ Toán</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="chan-day">
+      <span>© <span id="nam"></span> Tổ Toán, Trường THCS Nguyễn Tri Phương.</span>
+      <span id="nguon"><i></i><span id="nguonChu">Đang lấy dữ liệu…</span></span>
+    </div>
+  </div>
+</footer>
+
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* ═════════════════════════════════════════════════════════════════
+ *  GÓC TOÁN HỌC — TỔ TOÁN, THCS NGUYỄN TRI PHƯƠNG
+ *  Trang tổng quan + 6 trang con, điều hướng bằng dấu # nên chỉ
+ *  cần duy nhất tệp index.html này khi đưa lên mạng.
+ * ═════════════════════════════════════════════════════════════════ */
+
+var API = "https://script.google.com/macros/s/AKfycbyFQZZCEEK3CTMdkqPWimXpEfXjFx7dXXID8pJYB1784GU3gR5ySOzDNd9TexehpCvz/exec";
+var QUANTRI = "https://script.google.com/a/macros/thcsntp.edu.vn/s/AKfycbwSwf9LdoZEz5w_DhAFetacBelAM-Y7Y4O-lfOw5pVV5SB_QXoNnWP6RlhqL2aeVkSU/exec?trang=quantri";
+var MAU = {"ok":true,"thongTin":{"tenTruong":"Trường THCS Nguyễn Tri Phương","tenTo":"Tổ Toán","diaChi":"Phường Diên Hồng, Thành phố Hồ Chí Minh","mauChinh":"#1A70B8"},"duLieu":{"VanBan":[{"id":"VB001","soHieu":"1234/SGDĐT-GDTrH","ngayBanHanh":"2026-08-20","coQuan":"Sở GD&ĐT TP.HCM","loai":"Công văn","trichYeu":"Hướng dẫn thực hiện nhiệm vụ giáo dục trung học năm học 2026-2027","namHoc":"2026-2027","fileUrl":"","hieuLuc":"Còn hiệu lực","trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"},{"id":"VB002","soHieu":"45/KH-THCSNTP","ngayBanHanh":"2026-09-01","coQuan":"Trường THCS Nguyễn Tri Phương","loai":"Kế hoạch","trichYeu":"Kế hoạch giáo dục nhà trường năm học 2026-2027","namHoc":"2026-2027","fileUrl":"","hieuLuc":"Còn hiệu lực","trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"},{"id":"VB003","soHieu":"03/KH-TT","ngayBanHanh":"2026-09-05","coQuan":"Tổ Toán","loai":"Kế hoạch","trichYeu":"Kế hoạch hoạt động Tổ Toán năm học 2026-2027","namHoc":"2026-2027","fileUrl":"","hieuLuc":"Còn hiệu lực","trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"},{"id":"VB004","soHieu":"1102/SGDĐT-KTKĐ","ngayBanHanh":"2026-08-28","coQuan":"Sở GD&ĐT TP.HCM","loai":"Hướng dẫn","trichYeu":"Hướng dẫn kiểm tra, đánh giá học sinh trung học cơ sở theo Thông tư 22","namHoc":"2026-2027","fileUrl":"","hieuLuc":"Còn hiệu lực","trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"},{"id":"VB005","soHieu":"07/QĐ-THCSNTP","ngayBanHanh":"2026-09-03","coQuan":"Trường THCS Nguyễn Tri Phương","loai":"Quyết định","trichYeu":"Quyết định thành lập các tổ chuyên môn năm học 2026-2027","namHoc":"2026-2027","fileUrl":"","hieuLuc":"Còn hiệu lực","trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"}],"HocLieu":[{"id":"HL001","tieuDe":"Phiếu bài tập: Căn bậc hai và căn bậc ba","mon":"Toán","khoi":"9","loai":"Phiếu bài tập","chuDe":"Số và Đại số","moTa":"Bộ 30 bài tập phân dạng, có đáp án chi tiết.","anhUrl":"","fileUrl":"","luotTai":0,"trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"},{"id":"HL002","tieuDe":"Bài giảng: Hình đồng dạng trong thực tiễn","mon":"Toán","khoi":"8","loai":"Bài giảng","chuDe":"Hình học và Đo lường","moTa":"Bài trình chiếu kèm hình vẽ TikZ và mô hình GeoGebra.","anhUrl":"","fileUrl":"","luotTai":0,"trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"},{"id":"HL003","tieuDe":"Đề kiểm tra giữa kì I - Toán 6","mon":"Toán","khoi":"6","loai":"Đề kiểm tra","chuDe":"Số và Đại số","moTa":"Ma trận, bản đặc tả và đề minh hoạ theo Thông tư 22.","anhUrl":"","fileUrl":"","luotTai":0,"trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"},{"id":"HL004","tieuDe":"Kế hoạch bài dạy: Biểu đồ hình quạt tròn","mon":"Toán","khoi":"7","loai":"Kế hoạch bài dạy","chuDe":"Thống kê và Xác suất","moTa":"Giáo án soạn theo Công văn 5512, kèm phiếu học tập.","anhUrl":"","fileUrl":"","luotTai":0,"trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"},{"id":"HL005","tieuDe":"Chuyên đề bồi dưỡng: Bất đẳng thức Cauchy","mon":"Toán","khoi":"9","loai":"Phiếu bài tập","chuDe":"Số và Đại số","moTa":"Tài liệu bồi dưỡng học sinh giỏi, 25 bài từ cơ bản đến nâng cao.","anhUrl":"","fileUrl":"","luotTai":0,"trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"},{"id":"HL006","tieuDe":"Bài giảng: Hai tam giác bằng nhau","mon":"Toán","khoi":"7","loai":"Bài giảng","chuDe":"Hình học và Đo lường","moTa":"Slide kèm hình động dựng bằng GeoGebra.","anhUrl":"","fileUrl":"","luotTai":0,"trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"}],"ChuyenDe":[{"id":"CD001","tieuDe":"Dạy học Thống kê và Xác suất theo hướng gắn với thực tiễn","nguoiBaoCao":"Tổ Toán","ngayBaoCao":"2026-09-15","capDo":"Cấp tổ","anhBia":"","tomTat":"Chuyên đề bàn về cách khai thác số liệu đời sống để hình thành khái niệm thống kê cho học sinh lớp 8-9.","noiDung":"<p>Chương trình GDPT 2018 đưa Thống kê và Xác suất thành một mạch kiến thức xuyên suốt từ lớp 6 đến lớp 9. Điểm mới không nằm ở khối lượng kiến thức, mà ở chỗ học sinh phải làm việc với <b>số liệu thật</b>.</p><p>Chuyên đề đề xuất ba nguồn số liệu quen thuộc mà giáo viên có thể khai thác ngay: sĩ số và kết quả học tập của chính lớp mình, số liệu thời tiết của thành phố, và số liệu khảo sát nhỏ do học sinh tự thu thập.</p><p>Phần cuối trình bày một tiết dạy minh hoạ ở lớp 8 với chủ đề biểu đồ cột kép, kèm phiếu học tập và bảng tiêu chí đánh giá sản phẩm nhóm.</p>","fileDinhKem":"","thuVienAnh":"","trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"},{"id":"CD002","tieuDe":"Sử dụng GeoGebra trong dạy học Hình học lớp 8","nguoiBaoCao":"Tổ Toán","ngayBaoCao":"2026-10-20","capDo":"Cấp tổ","anhBia":"","tomTat":"Giới thiệu cách dựng hình động để học sinh tự phát hiện tính chất, thay vì được thông báo kết quả.","noiDung":"","fileDinhKem":"","thuVienAnh":"","trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"}],"KhongGianHCM":[{"id":"HCM001","khoi":"NamDieuBacDay","tieuDe":"Yêu Tổ quốc, yêu đồng bào","moTa":"","noiDung":"","anhUrl":"","namMoc":"","thuTu":1,"nguon":"Năm điều Bác Hồ dạy thiếu niên, nhi đồng","trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"},{"id":"HCM002","khoi":"NamDieuBacDay","tieuDe":"Học tập tốt, lao động tốt","moTa":"","noiDung":"","anhUrl":"","namMoc":"","thuTu":2,"nguon":"Năm điều Bác Hồ dạy thiếu niên, nhi đồng","trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"},{"id":"HCM003","khoi":"NamDieuBacDay","tieuDe":"Đoàn kết tốt, kỷ luật tốt","moTa":"","noiDung":"","anhUrl":"","namMoc":"","thuTu":3,"nguon":"Năm điều Bác Hồ dạy thiếu niên, nhi đồng","trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"},{"id":"HCM004","khoi":"NamDieuBacDay","tieuDe":"Giữ gìn vệ sinh thật tốt","moTa":"","noiDung":"","anhUrl":"","namMoc":"","thuTu":4,"nguon":"Năm điều Bác Hồ dạy thiếu niên, nhi đồng","trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"},{"id":"HCM005","khoi":"NamDieuBacDay","tieuDe":"Khiêm tốn, thật thà, dũng cảm","moTa":"","noiDung":"","anhUrl":"","namMoc":"","thuTu":5,"nguon":"Năm điều Bác Hồ dạy thiếu niên, nhi đồng","trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"},{"id":"HCM006","khoi":"TrichDan","tieuDe":"Vì lợi ích mười năm thì phải trồng cây, vì lợi ích trăm năm thì phải trồng người","moTa":"","noiDung":"","anhUrl":"","namMoc":1958,"thuTu":1,"nguon":"Bài nói tại lớp học chính trị của giáo viên, năm 1958","trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"},{"id":"HCM008","khoi":"TrichDan","tieuDe":"Non sông Việt Nam có trở nên tươi đẹp hay không, dân tộc Việt Nam có bước tới đài vinh quang để sánh vai với các cường quốc năm châu được hay không, chính là nhờ một phần lớn ở công học tập của các em","moTa":"","noiDung":"","anhUrl":"","namMoc":1945,"thuTu":2,"nguon":"Thư gửi học sinh nhân ngày khai trường đầu tiên, tháng 9 năm 1945","trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"},{"id":"HCM007","khoi":"DongThoiGian","tieuDe":"Ra đi tìm đường cứu nước","moTa":"Ngày 5/6/1911, tại Bến Nhà Rồng, người thanh niên Nguyễn Tất Thành lên tàu rời Tổ quốc.","noiDung":"","anhUrl":"","namMoc":1911,"thuTu":1,"nguon":"","trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"},{"id":"HCM009","khoi":"DongThoiGian","tieuDe":"Đọc Tuyên ngôn Độc lập","moTa":"Ngày 2/9/1945, tại Quảng trường Ba Đình, Người đọc bản Tuyên ngôn Độc lập khai sinh nước Việt Nam Dân chủ Cộng hoà.","noiDung":"","anhUrl":"","namMoc":1945,"thuTu":2,"nguon":"","trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"}],"HoatDong":[],"GiaoVien":[{"id":"GV001","hoTen":"Trương Trọng Hữu","chucVu":"Giáo viên","mon":"Toán","email":"tthuu@thcsntp.edu.vn","anhUrl":"","gioiThieu":"","thuTu":1,"trangThai":"DaDuyet"}],"ThongBao":[{"id":"TB001","ngay":"2026-09-06","noiDung":"Trang Góc Toán học của tổ Toán chính thức đi vào hoạt động.","link":"","mucDo":"Tin","ngayHetHan":"","trangThai":"DaDuyet"}]},"capNhat":"2026-09-06T06:11:03.172Z"};
+var DL = MAU, TRUC = false;
+
+/* ───────── tiện ích ───────── */
+function E(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){
+  return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+function ngay(s){var m=/^(\d{4})-(\d{2})-(\d{2})/.exec(String(s||''));
+  return m? m[3]+'/'+m[2]+'/'+m[1] : String(s||'');}
+function el(id){return document.getElementById(id);}
+function B(t){var p=String(t||'').trim().split(/\s+/);return (p[p.length-1]||'?').charAt(0).toUpperCase();}
+function bang(t){return (DL.duLieu && DL.duLieu[t]) || [];}
+function khongDau(s){return String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+  .replace(/đ/g,'d').replace(/Đ/g,'D').toLowerCase();}
+function duyNhat(ds,truong){var r=[],d={};ds.forEach(function(x){
+  var v=String(x[truong]||'').trim();if(v&&!d[v]){d[v]=1;r.push(v);}});return r.sort();}
+function chon(id,nhan,ds){
+  return '<select id="'+id+'"><option value="">'+E(nhan)+'</option>'
+    + ds.map(function(v){return '<option>'+E(v)+'</option>';}).join('') + '</select>';
+}
+var MUI_TEN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+
+/* ảnh minh hoạ vẽ bằng SVG, không phụ thuộc mạng */
+function anhMau(i){
+  var p=[['#1A70B8','#8FC0E8'],['#B4670A','#EDC98C'],['#0C7A60','#8DCDBB'],
+         ['#7143BC','#C4A9EC'],['#BB0F29','#EFA3AC'],['#0D6A8C','#95C9DE']][i%6];
+  var s='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">'
+   +'<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">'
+   +'<stop offset="0" stop-color="'+p[0]+'"/><stop offset="1" stop-color="'+p[1]+'"/></linearGradient>'
+   +'<pattern id="d" width="36" height="36" patternUnits="userSpaceOnUse">'
+   +'<circle cx="18" cy="18" r="1.7" fill="#fff" opacity=".3"/></pattern></defs>'
+   +'<rect width="800" height="450" fill="url(#g)"/><rect width="800" height="450" fill="url(#d)"/>'
+   +'<path d="M0 330q200-130 400 0t400 0V450H0z" fill="#fff" opacity=".14"/>'
+   +'<circle cx="640" cy="120" r="52" fill="#fff" opacity=".16"/></svg>';
+  return 'data:image/svg+xml;charset=utf-8,'+encodeURIComponent(s);
+}
+
+/* ───────── gọi dữ liệu ───────── */
+function goiAPI(xong){
+  if(!API || API.indexOf('http')!==0){ xong(null); return; }
+  var ten='__ntp_'+Math.random().toString(36).slice(2), daKet=false;
+  var s=document.createElement('script');
+  var hg=setTimeout(function(){ket(null);},8000);
+  window[ten]=function(kq){ket(kq);};
+  s.onerror=function(){ket(null);};
+  s.src=API+(API.indexOf('?')<0?'?':'&')+'callback='+ten;
+  document.head.appendChild(s);
+  function ket(kq){ if(daKet) return; daKet=true; clearTimeout(hg);
+    try{delete window[ten];}catch(e){window[ten]=undefined;}
+    if(s.parentNode) s.parentNode.removeChild(s); xong(kq); }
+}
+
+/* ───────── danh mục các trang ───────── */
+var TRANG = [
+  {ma:'vanban',   ten:'Văn bản',      lop:'s-vanban',
+   mo:'Công văn, kế hoạch và hướng dẫn của Sở Giáo dục và Đào tạo, của nhà trường và của tổ Toán.'},
+  {ma:'hoclieu',  ten:'Học liệu',     lop:'s-hoclieu', tenDay:'Kho học liệu số',
+   mo:'Kế hoạch bài dạy, bài giảng, đề kiểm tra và phiếu bài tập do thầy cô trong tổ biên soạn — thầy cô dùng để dạy, học sinh dùng để ôn.'},
+  {ma:'chuyende', ten:'Chuyên đề',    lop:'s-chuyende',
+   mo:'Báo cáo chuyên môn và nội dung sinh hoạt tổ theo hướng nghiên cứu bài học.'},
+  {ma:'hinhanh',  ten:'Hình ảnh',     lop:'s-hinhanh', tenDay:'Hình ảnh hoạt động',
+   mo:'Những khoảnh khắc của thầy và trò tổ Toán trong năm học.'},
+  {ma:'hcm',      ten:'Văn hóa Hồ Chí Minh', lop:'s-hcm', tenDay:'Không gian văn hóa Hồ Chí Minh',
+   mo:'Lời Bác dạy, tư liệu và những việc thầy trò tổ Toán làm theo Bác mỗi ngày.'},
+  {ma:'to',       ten:'Về tổ Toán',   lop:'s-to', tenDay:'Tổ Toán',
+   mo:'Thành viên và hoạt động chuyên môn của tổ Toán, Trường THCS Nguyễn Tri Phương.'}
+];
+function timTrang(ma){for(var i=0;i<TRANG.length;i++) if(TRANG[i].ma===ma) return TRANG[i]; return null;}
+
+el('navChinh').innerHTML = TRANG.map(function(t){
+  return '<a href="#/'+t.ma+'" data-ma="'+t.ma+'">'+E(t.ten)+'</a>';
+}).join('');
+
+/* ───────── bộ định tuyến ───────── */
+function duongDan(){
+  var h = (location.hash||'#/').replace(/^#\/?/,'');
+  return h.split('/').filter(Boolean);
+}
+function veTrang(cuon){
+  var d = duongDan(), ma = d[0]||'', t = timTrang(ma);
+  var app = el('app');
+  app.className = t ? t.lop : '';
+  if(!t) app.innerHTML = trangTongQuan();
+  else if(ma==='vanban')   app.innerHTML = dauTrang(t) + trangVanBan();
+  else if(ma==='hoclieu')  app.innerHTML = dauTrang(t) + trangHocLieu();
+  else if(ma==='chuyende') app.innerHTML = d[1] ? dauTrang(t,'chi tiết') + trangChuyenDeChiTiet(d[1])
+                                               : dauTrang(t) + trangChuyenDe();
+  else if(ma==='hinhanh')  app.innerHTML = dauTrang(t) + trangHinhAnh();
+  else if(ma==='hcm')      app.innerHTML = dauTrang(t) + trangHCM();
+  else if(ma==='to')       app.innerHTML = dauTrang(t) + trangTo();
+
+  Array.prototype.forEach.call(el('navChinh').children, function(a){
+    a.classList.toggle('dang', a.getAttribute('data-ma')===ma);
+  });
+  if(cuon !== false) window.scrollTo(0,0);
+  noiSuKien();
+}
+function dauTrang(t, phu){
+  return '<div class="dau-trang"><div class="kh">'
+    + '<div class="duong"><a href="#/">Trang chủ</a><span>›</span><span>'+E(t.tenDay||t.ten)+'</span>'
+    + (phu?'<span>›</span><span>'+E(phu)+'</span>':'') + '</div>'
+    + '<h1>'+E(t.tenDay||t.ten)+'</h1><p>'+E(t.mo)+'</p></div></div>';
+}
+
+/* ═════════ TRANG TỔNG QUAN ═════════ */
+function trangTongQuan(){
+  var vb=bang('VanBan'), hl=bang('HocLieu'), cd=bang('ChuyenDe'),
+      ha=anhHoatDong(), tb=bang('ThongBao'), gv=bang('GiaoVien'), hcm=bang('KhongGianHCM');
+
+  var h = '<div class="hero"><div class="kh hero-in"><div>'
+    + '<span class="nhan">Dành cho thầy cô và học sinh</span>'
+    + '<h1>Góc Toán học của <em>Trường Nguyễn Tri Phương</em></h1>'
+    + '<p class="dek">Văn bản, học liệu, chuyên đề và hình ảnh của tổ Toán — gom về một nơi để thầy cô soạn bài và học sinh tự ôn tập.</p>'
+    + '<div class="hero-nut">'
+    + '<a class="nut dac" href="#/hoclieu">'
+    + '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A1.5 1.5 0 015.5 4H10a2 2 0 012 2 2 2 0 012-2h4.5A1.5 1.5 0 0120 5.5v12a1.5 1.5 0 01-1.5 1.5H14a2 2 0 00-2 2 2 2 0 00-2-2H5.5A1.5 1.5 0 014 17.5z"/><path d="M12 6v14"/></svg>'
+    + 'Vào kho học liệu</a>'
+    + '<a class="nut vien" href="#/vanban">'
+    + '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>'
+    + 'Tra cứu văn bản</a></div></div>'
+    + '<div class="hero-hinh" aria-hidden="true">' + hinhToan() + '</div></div>'
+    + '<div class="kh"><dl class="solieu">'
+    + [['Văn bản',vb.length],['Học liệu số',hl.length],['Chuyên đề',cd.length],['Hình ảnh',ha.length]]
+        .map(function(x){return '<div><dt>'+x[0]+'</dt><dd>'+x[1]+'</dd></div>';}).join('')
+    + '</dl></div></div>';
+
+  if(tb.length) h += '<div class="tb"><div class="kh tb-in"><span class="tb-nhan">Thông báo</span>'
+    + '<span class="chu">'+E(tb[0].noiDung)+'</span></div></div>';
+
+  /* 6 ô truy cập nhanh */
+  var IC = {
+    vanban:'<path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/>',
+    hoclieu:'<path d="M12 4L3 8l9 4 9-4z"/><path d="M3 12l9 4 9-4M3 16l9 4 9-4"/>',
+    chuyende:'<path d="M3 4h18v12H3z"/><path d="M12 16v4M8 20h8M8 11l2.5 2.5L16 8"/>',
+    hinhanh:'<rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.6"/><path d="M21 15l-5-5L7 19"/>',
+    hcm:'<path d="M12 2.8l2.7 5.7 6.1.9-4.4 4.4 1 6.2-5.4-2.9-5.4 2.9 1-6.2L3.2 9.4l6.1-.9z"/>',
+    to:'<path d="M16 20v-2a4 4 0 00-4-4H7a4 4 0 00-4 4v2"/><circle cx="9.5" cy="7" r="3.2"/><path d="M17 11a3 3 0 100-6M21 20v-2a3.6 3.6 0 00-2.5-3.4"/>'
+  };
+  var DEM = {vanban:vb.length+' văn bản', hoclieu:hl.length+' học liệu', chuyende:cd.length+' chuyên đề',
+             hinhanh:ha.length+' hình ảnh', hcm:'Bước vào', to:gv.length+' thành viên'};
+  h += '<section><div class="kh"><div class="o-luoi">'
+    + TRANG.map(function(t){
+        return '<a class="o '+t.lop+'" href="#/'+t.ma+'">'
+          + '<span class="ic"><svg viewBox="0 0 24 24">'+IC[t.ma]+'</svg></span>'
+          + '<b>'+E(t.tenDay||t.ten)+'</b><small>'+E(t.mo)+'</small>'
+          + '<span class="di">'+E(DEM[t.ma])+' →</span></a>';
+      }).join('')
+    + '</div></div></section>';
+
+  /* văn bản mới */
+  h += '<section class="nen-sac s-vanban"><div class="kh">'
+    + mucDau('Văn bản','Văn bản mới nhất','','#/vanban','Toàn bộ văn bản')
+    + dsVanBan(vb.slice(0,4)) + '</div></section>';
+
+  /* học liệu mới */
+  h += '<section class="s-hoclieu"><div class="kh">'
+    + mucDau('Học liệu số','Mới đưa lên kho',
+        'Phân loại theo khối và mạch kiến thức của Chương trình GDPT 2018.','#/hoclieu','Toàn bộ kho học liệu')
+    + '<div class="luoi3">'+ hl.slice(0,3).map(theHocLieu).join('') +'</div>'
+    + (hl.length?'':'<p class="rong">Kho học liệu đang được xây dựng.</p>')
+    + '</div></section>';
+
+  /* hình ảnh */
+  h += '<section class="nen-sac s-hinhanh"><div class="kh">'
+    + mucDau('Hình ảnh','Hoạt động của tổ Toán','','#/hinhanh','Xem toàn bộ hình ảnh')
+    + trinhChieu(ha.slice(0,5), false) + '</div></section>';
+
+  /* chuyên đề */
+  h += '<section class="s-chuyende"><div class="kh">'
+    + mucDau('Chuyên đề','Chuyên đề chuyên môn','','#/chuyende','Các chuyên đề khác');
+  if(cd.length){
+    var c=cd[0];
+    h += '<a class="cd-lon" href="#/chuyende/'+E(c.id)+'" style="display:block;text-decoration:none">'
+      + '<h3>'+E(c.tieuDe)+'</h3><p>'+E(c.tomTat)+'</p><div class="cd-meta">'
+      + '<span>Báo cáo: <b>'+E(c.nguoiBaoCao)+'</b></span>'
+      + '<span>Thời gian: <b>'+ngay(c.ngayBaoCao)+'</b></span>'
+      + (c.capDo?'<span>Cấp: <b>'+E(c.capDo)+'</b></span>':'')+'</div></a>';
+  } else h += '<p class="rong">Chưa có chuyên đề nào được đăng.</p>';
+  h += '</div></section>';
+
+  /* không gian văn hóa HCM */
+  var td = hcm.filter(function(x){return x.khoi==='TrichDan';})[0];
+  h += '<section class="hcm-nen s-hcm"><div class="kh">'
+    + '<span class="nhan">Học tập và làm theo Bác</span>'
+    + '<h2 class="serif" style="font-size:clamp(27px,3.6vw,36px);font-weight:600;line-height:1.18;color:var(--sac-dam)">Không gian văn hóa Hồ Chí Minh</h2>'
+    + (td ? '<blockquote class="trichdan"><q>“'+E(td.tieuDe)+'”</q><cite>'+E(td.nguon)+'</cite></blockquote>' : '')
+    + '<div style="margin-top:20px"><a class="lienket" href="#/hcm">Bước vào không gian '+MUI_TEN+'</a></div>'
+    + '</div></section>';
+
+  return h;
+}
+function mucDau(nhan,tieu,mo,link,chuLink){
+  return '<div class="dau-muc"><div><span class="nhan">'+E(nhan)+'</span><h2>'+E(tieu)+'</h2>'
+    + (mo?'<p>'+E(mo)+'</p>':'') + '</div>'
+    + '<a class="lienket" href="'+link+'">'+E(chuLink)+' '+MUI_TEN+'</a></div>';
+}
+function hinhToan(){
+  return '<svg viewBox="0 0 400 300" role="presentation">'
+   +'<defs><pattern id="luoi" width="20" height="20" patternUnits="userSpaceOnUse">'
+   +'<path d="M20 0H0v20" fill="none" stroke="#1A70B8" stroke-width=".6" opacity=".22"/></pattern></defs>'
+   +'<rect x="8" y="8" width="384" height="284" rx="16" fill="#fff"/>'
+   +'<rect x="8" y="8" width="384" height="284" rx="16" fill="url(#luoi)"/>'
+   +'<rect x="8" y="8" width="384" height="284" rx="16" fill="none" stroke="#C4DCF1"/>'
+   +'<path d="M32 232H366" stroke="#1A70B8" stroke-width="1.4" opacity=".5"/>'
+   +'<path d="M200 276V34" stroke="#1A70B8" stroke-width="1.4" opacity=".5"/>'
+   +'<path d="M366 232l-8-4v8z" fill="#1A70B8" opacity=".5"/>'
+   +'<path d="M200 34l-4 8h8z" fill="#1A70B8" opacity=".5"/>'
+   +'<path d="M88 72Q200 300 312 72" fill="none" stroke="#1A70B8" stroke-width="2.8" stroke-linecap="round"/>'
+   +'<path d="M200 186V232" stroke="#BB0F29" stroke-width="1.4" stroke-dasharray="4 4" opacity=".8"/>'
+   +'<circle cx="200" cy="186" r="5.5" fill="#BB0F29"/><circle cx="200" cy="232" r="4" fill="#1A70B8"/>'
+   +'<text x="211" y="216" font-family="IBM Plex Mono, monospace" font-size="12" fill="#BB0F29">đỉnh</text>'
+   +'<text x="206" y="64" font-family="Newsreader, Georgia, serif" font-size="22" font-style="italic" fill="#0B4A7E">y = ax² + bx + c</text>'
+   +'</svg>';
+}
+
+/* ═════════ VĂN BẢN ═════════ */
+function dsVanBan(ds){
+  if(!ds.length) return '<p class="rong">Không tìm thấy văn bản nào phù hợp.</p>';
+  return '<div class="vb-ds">' + ds.map(function(v){
+    var co = !!v.fileUrl;
+    return '<a class="vb" href="'+E(co?v.fileUrl:'#/vanban')+'"'+(co?' target="_blank" rel="noopener"':'')+'>'
+      + '<span class="vb-so">'+E(v.soHieu)+'</span>'
+      + '<span><span class="vb-ty">'+E(v.trichYeu)+'</span>'
+      + '<span class="vb-cq">'+E(v.coQuan)+(v.loai?' · '+E(v.loai):'')
+      + (v.namHoc?' · Năm học '+E(v.namHoc):'')+'</span></span>'
+      + '<span class="vb-ng">'+ngay(v.ngayBanHanh)+'</span></a>';
+  }).join('') + '</div>';
+}
+function trangVanBan(){
+  var vb=bang('VanBan');
+  return '<section><div class="kh">'
+    + '<div class="loc" id="locVB">'
+    + '<input type="search" id="tuKhoaVB" placeholder="Tìm theo trích yếu hoặc số hiệu…">'
+    + chon('cqVB','Mọi cơ quan ban hành', duyNhat(vb,'coQuan'))
+    + chon('loaiVB','Mọi loại văn bản', duyNhat(vb,'loai'))
+    + chon('namVB','Mọi năm học', duyNhat(vb,'namHoc'))
+    + '<span class="ketqua" id="demVB"></span></div>'
+    + '<div id="ketQuaVB"></div>'
+    + '<p class="ghichu">Bấm vào một văn bản để mở tệp đính kèm trên Google Drive.</p>'
+    + '</div></section>';
+}
+
+/* ═════════ HỌC LIỆU ═════════ */
+function theHocLieu(h){
+  var co=!!h.fileUrl;
+  return '<a class="the-hl" href="'+E(co?h.fileUrl:'#/hoclieu')+'"'+(co?' target="_blank" rel="noopener"':'')+'>'
+    + '<span class="hang-the"><span class="nhan-o">'+E(h.mon)+' '+E(h.khoi)+'</span>'
+    + '<span class="nhan-o xam">'+E(h.loai)+'</span></span>'
+    + '<b>'+E(h.tieuDe)+'</b><p>'+E(h.moTa)+'</p>'
+    + '<span class="chan"><span>'+E(h.chuDe)+'</span><span>Tải về →</span></span></a>';
+}
+function trangHocLieu(){
+  var hl=bang('HocLieu');
+  return '<section><div class="kh">'
+    + '<div class="loc" id="locHL">'
+    + '<input type="search" id="tuKhoaHL" placeholder="Tìm theo tên hoặc mô tả học liệu…">'
+    + chon('khoiHL','Mọi khối', duyNhat(hl,'khoi'))
+    + chon('loaiHL','Mọi loại', duyNhat(hl,'loai'))
+    + chon('cdHL','Mọi chủ đề', duyNhat(hl,'chuDe'))
+    + '<span class="ketqua" id="demHL"></span></div>'
+    + '<div id="ketQuaHL"></div></div></section>';
+}
+
+/* ═════════ CHUYÊN ĐỀ ═════════ */
+function trangChuyenDe(){
+  var cd=bang('ChuyenDe');
+  if(!cd.length) return '<section><div class="kh"><p class="rong">Chưa có chuyên đề nào được đăng.</p></div></section>';
+  return '<section><div class="kh">' + cd.map(function(c){
+    return '<a class="bai" href="#/chuyende/'+E(c.id)+'">'
+      + '<h3>'+E(c.tieuDe)+'</h3><p>'+E(c.tomTat)+'</p>'
+      + '<div class="cd-meta"><span>Báo cáo: <b>'+E(c.nguoiBaoCao)+'</b></span>'
+      + '<span>'+ngay(c.ngayBaoCao)+'</span>'
+      + (c.capDo?'<span><b>'+E(c.capDo)+'</b></span>':'')+'</div></a>';
+  }).join('') + '</div></section>';
+}
+function trangChuyenDeChiTiet(id){
+  var c = bang('ChuyenDe').filter(function(x){return String(x.id)===String(id);})[0];
+  if(!c) return '<section><div class="kh"><p class="rong">Không tìm thấy chuyên đề này.</p></div></section>';
+  var nd = String(c.noiDung||'').trim();
+  return '<section><div class="kh">'
+    + '<h2 class="serif" style="font-size:clamp(26px,3.6vw,36px);font-weight:600;line-height:1.22;color:var(--sac-dam);max-width:24ch">'+E(c.tieuDe)+'</h2>'
+    + '<div class="cd-meta" style="margin:16px 0 26px"><span>Báo cáo: <b>'+E(c.nguoiBaoCao)+'</b></span>'
+    + '<span>Thời gian: <b>'+ngay(c.ngayBaoCao)+'</b></span>'
+    + (c.capDo?'<span>Cấp: <b>'+E(c.capDo)+'</b></span>':'')+'</div>'
+    + '<div class="noidung-bai">' + (nd || '<p>'+E(c.tomTat)+'</p><p>Nội dung đầy đủ sẽ được đăng trong khu quản trị.</p>') + '</div>'
+    + (c.fileDinhKem?'<p style="margin-top:26px"><a class="lienket" href="'+E(c.fileDinhKem)+'" target="_blank" rel="noopener">Tải tài liệu kèm theo '+MUI_TEN+'</a></p>':'')
+    + '<p style="margin-top:30px"><a class="lienket" href="#/chuyende">← Về danh sách chuyên đề</a></p>'
+    + '</div></section>';
+}
+
+/* ═════════ HÌNH ẢNH ═════════ */
+function anhHoatDong(){
+  var ds = bang('HoatDong').filter(function(x){return x.anhUrl;})
+    .map(function(x){return {url:x.anhUrl, ten:x.tieuDe, mo:x.moTa||x.loai||'', ngay:x.ngay, mau:false};});
+  var anhHCM = bang('KhongGianHCM').filter(function(x){return x.anhUrl;})
+    .map(function(x){return {url:x.anhUrl, ten:x.tieuDe, mo:'Không gian văn hóa Hồ Chí Minh', ngay:'', mau:false};});
+  ds = ds.concat(anhHCM);
+  if(ds.length) return ds;
+  /* chưa có ảnh thật thì bày ảnh minh hoạ để thấy trước bố cục */
+  return [
+    {url:anhMau(0), ten:'Sinh hoạt chuyên môn tổ Toán', mo:'Ảnh minh hoạ', ngay:'', mau:true},
+    {url:anhMau(1), ten:'Học sinh trong tiết học Toán', mo:'Ảnh minh hoạ', ngay:'', mau:true},
+    {url:anhMau(2), ten:'Ngày hội Toán học của trường', mo:'Ảnh minh hoạ', ngay:'', mau:true},
+    {url:anhMau(3), ten:'Bồi dưỡng học sinh giỏi', mo:'Ảnh minh hoạ', ngay:'', mau:true},
+    {url:anhMau(4), ten:'Không gian văn hóa Hồ Chí Minh tại trường', mo:'Ảnh minh hoạ', ngay:'', mau:true}
+  ];
+}
+function trinhChieu(ds, coLuoi){
+  if(!ds.length) return '<p class="rong">Chưa có hình ảnh nào.</p>';
+  var h = '<div data-anh><div class="slide" data-slide><div class="slide-khung">'
+    + ds.map(function(a,i){
+        return '<img src="'+E(a.url)+'" alt="'+E(a.ten)+'" class="'+(i===0?'hien':'')+'" loading="'+(i?'lazy':'eager')+'">';
+      }).join('')
+    + '<span class="slide-dem" data-dem>1/'+ds.length+'</span>'
+    + '<div class="slide-chu" data-chu><b>'+E(ds[0].ten)+'</b><span>'+E(ds[0].mo)+(ds[0].ngay?' · '+ngay(ds[0].ngay):'')+'</span></div>'
+    + '<button class="slide-nut truoc" data-di="-1" aria-label="Ảnh trước"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>'
+    + '<button class="slide-nut sau" data-di="1" aria-label="Ảnh sau"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>'
+    + '</div><div class="slide-cham" data-cham>'
+    + ds.map(function(a,i){return '<button class="cham '+(i===0?'dang':'')+'" data-so="'+i+'" aria-label="Ảnh '+(i+1)+'"></button>';}).join('')
+    + '</div>'
+    + '<script type="application/json" data-slide-du-lieu>'
+    + JSON.stringify(ds.map(function(a){return {ten:a.ten,mo:a.mo,ngay:a.ngay};})) + '<\/script>'
+    + '</div>';
+  if(coLuoi) h += '<div class="luoi-anh" data-luoi>'
+    + ds.map(function(a,i){return '<button data-so="'+i+'" class="'+(i===0?'dang':'')+'"><img src="'+E(a.url)+'" alt="" loading="lazy"></button>';}).join('')
+    + '</div>';
+  h += '</div>';
+  return h;
+}
+function trangHinhAnh(){
+  var ds=anhHoatDong(), coMau = ds.length && ds[0].mau;
+  return '<section><div class="kh">' + trinhChieu(ds, true)
+    + (coMau ? '<p class="ghichu">Đây là ảnh minh hoạ. Ảnh thật của tổ sẽ hiện ở đây ngay khi được đăng trong khu quản trị.</p>' : '')
+    + '</div></section>';
+}
+
+/* ═════════ KHÔNG GIAN VĂN HÓA HỒ CHÍ MINH ═════════ */
+function trangHCM(){
+  var hcm=bang('KhongGianHCM');
+  var td  = hcm.filter(function(x){return x.khoi==='TrichDan';});
+  var nd  = hcm.filter(function(x){return x.khoi==='NamDieuBacDay';})
+               .sort(function(a,b){return (a.thuTu||0)-(b.thuTu||0);});
+  var moc = hcm.filter(function(x){return x.khoi==='DongThoiGian';})
+               .sort(function(a,b){return (a.namMoc||0)-(b.namMoc||0);});
+
+  var h = '<section class="hcm-nen"><div class="kh">';
+  if(td.length) h += '<blockquote class="trichdan"><q>“'+E(td[0].tieuDe)+'”</q><cite>'+E(td[0].nguon)+'</cite></blockquote>';
+  h += '<span class="nhan">Năm điều Bác Hồ dạy</span>'
+    + '<div class="namdieu">' + nd.map(function(x){
+        return '<div class="dieu"><span class="stt">'+E(x.thuTu)+'</span><p>'+E(x.tieuDe)+'</p></div>';
+      }).join('') + '</div>';
+  h += '</div></section>';
+
+  if(moc.length) h += '<section><div class="kh">'
+    + '<span class="nhan">Dòng thời gian</span>'
+    + '<h2 class="serif" style="font-size:clamp(24px,3.2vw,31px);font-weight:600;margin-bottom:20px">Những dấu mốc trong cuộc đời Bác</h2>'
+    + moc.map(function(x){
+        return '<div class="moc"><span class="nam">'+E(x.namMoc)+'</span>'
+          + '<span><b>'+E(x.tieuDe)+'</b><span>'+E(x.moTa)+'</span></span></div>';
+      }).join('') + '</div></section>';
+
+  if(td.length>1) h += '<section class="hcm-nen"><div class="kh"><span class="nhan">Lời Bác dạy</span>'
+    + td.slice(1).map(function(x){
+        return '<blockquote class="trichdan"><q>“'+E(x.tieuDe)+'”</q><cite>'+E(x.nguon)+'</cite></blockquote>';
+      }).join('') + '</div></section>';
+
+  h += '<section><div class="kh"><span class="nhan">Tổ Toán học và làm theo Bác</span>'
+    + '<h2 class="serif" style="font-size:clamp(24px,3.2vw,31px);font-weight:600;margin-bottom:16px">Những việc làm cụ thể</h2>'
+    + '<p style="max-width:66ch;color:var(--muc-2);margin:0 0 22px">Mục này dành để đăng sáng kiến, gương điển hình và các sản phẩm của thầy trò tổ Toán gắn với việc học tập và làm theo tư tưởng, đạo đức, phong cách Hồ Chí Minh.</p>'
+    + trinhChieu(anhHoatDong().slice(0,4), false)
+    + '</div></section>';
+  return h;
+}
+
+/* ═════════ VỀ TỔ TOÁN ═════════ */
+function trangTo(){
+  var gv=bang('GiaoVien').sort(function(a,b){return (a.thuTu||0)-(b.thuTu||0);});
+  var vb=bang('VanBan').filter(function(v){return /^Tổ Toán/.test(String(v.coQuan||''));});
+  var h = '<section><div class="kh"><span class="nhan">Thành viên</span>'
+    + '<h2 class="serif" style="font-size:clamp(24px,3.2vw,31px);font-weight:600;margin-bottom:22px">Thầy cô trong tổ</h2>';
+  h += gv.length
+    ? '<div class="gv-ds">' + gv.map(function(g){
+        var a = g.anhUrl ? '<img class="anh" src="'+E(g.anhUrl)+'" alt="">' : '<span class="anh">'+E(B(g.hoTen))+'</span>';
+        return '<div class="gv">'+a+'<span><b>'+E(g.hoTen)+'</b><span>'+E(g.chucVu)
+          +(g.mon?' · '+E(g.mon):'')+'</span></span></div>';
+      }).join('') + '</div>'
+    : '<p class="rong">Danh sách thành viên đang được cập nhật.</p>';
+  h += '</div></section>';
+
+  if(vb.length) h += '<section class="nen-sac"><div class="kh"><span class="nhan">Kế hoạch của tổ</span>'
+    + '<h2 class="serif" style="font-size:clamp(24px,3.2vw,31px);font-weight:600;margin-bottom:22px">Văn bản do tổ ban hành</h2>'
+    + dsVanBan(vb) + '</div></section>';
+  return h;
+}
+
+/* ═════════ NỐI SỰ KIỆN SAU MỖI LẦN VẼ ═════════ */
+function noiSuKien(){
+  /* bộ lọc văn bản */
+  if(el('locVB')){
+    var locVB = function(){
+      var q=khongDau(el('tuKhoaVB').value), cq=el('cqVB').value, lo=el('loaiVB').value, na=el('namVB').value;
+      var ds = bang('VanBan').filter(function(v){
+        if(cq && v.coQuan!==cq) return false;
+        if(lo && v.loai!==lo) return false;
+        if(na && String(v.namHoc)!==na) return false;
+        if(q && khongDau(v.trichYeu+' '+v.soHieu).indexOf(q)<0) return false;
+        return true;
+      });
+      el('ketQuaVB').innerHTML = dsVanBan(ds);
+      el('demVB').textContent = ds.length + '/' + bang('VanBan').length + ' văn bản';
+    };
+    ['tuKhoaVB','cqVB','loaiVB','namVB'].forEach(function(id){
+      el(id).addEventListener('input', locVB); el(id).addEventListener('change', locVB);
+    });
+    locVB();
+  }
+
+  /* bộ lọc học liệu */
+  if(el('locHL')){
+    var locHL = function(){
+      var q=khongDau(el('tuKhoaHL').value), k=el('khoiHL').value, lo=el('loaiHL').value, cd=el('cdHL').value;
+      var ds = bang('HocLieu').filter(function(h){
+        if(k && String(h.khoi)!==k) return false;
+        if(lo && h.loai!==lo) return false;
+        if(cd && h.chuDe!==cd) return false;
+        if(q && khongDau(h.tieuDe+' '+h.moTa).indexOf(q)<0) return false;
+        return true;
+      });
+      el('ketQuaHL').innerHTML = ds.length
+        ? '<div class="luoi3">'+ds.map(theHocLieu).join('')+'</div>'
+        : '<p class="rong">Không tìm thấy học liệu nào phù hợp.</p>';
+      el('demHL').textContent = ds.length + '/' + bang('HocLieu').length + ' học liệu';
+    };
+    ['tuKhoaHL','khoiHL','loaiHL','cdHL'].forEach(function(id){
+      el(id).addEventListener('input', locHL); el(id).addEventListener('change', locHL);
+    });
+    locHL();
+  }
+
+  /* trình chiếu ảnh */
+  Array.prototype.forEach.call(document.querySelectorAll('[data-anh]'), function(boc){
+    var kh = boc.querySelector('[data-slide]');
+    if(!kh) return;
+    var anh = kh.querySelectorAll('.slide-khung img');
+    var cham = kh.querySelectorAll('[data-cham] .cham');
+    var oLuoi = boc.querySelector('[data-luoi]');
+    var thu = oLuoi ? oLuoi.querySelectorAll('button') : [];
+    var meta = [];
+    try{ meta = JSON.parse(kh.querySelector('[data-slide-du-lieu]').textContent); }catch(e){}
+    var i = 0, tong = anh.length, tuDong;
+
+    function toi(n){
+      i = (n + tong) % tong;
+      Array.prototype.forEach.call(anh, function(a,k){ a.classList.toggle('hien', k===i); });
+      Array.prototype.forEach.call(cham, function(c,k){ c.classList.toggle('dang', k===i); });
+      Array.prototype.forEach.call(thu, function(t,k){ t.classList.toggle('dang', k===i); });
+      var d = kh.querySelector('[data-dem]'); if(d) d.textContent = (i+1)+'/'+tong;
+      var c = kh.querySelector('[data-chu]');
+      if(c && meta[i]) c.innerHTML = '<b>'+E(meta[i].ten)+'</b><span>'+E(meta[i].mo)
+        + (meta[i].ngay?' · '+ngay(meta[i].ngay):'') + '</span>';
+    }
+    Array.prototype.forEach.call(kh.querySelectorAll('[data-di]'), function(b){
+      b.addEventListener('click', function(){ toi(i + parseInt(b.getAttribute('data-di'),10)); dungTuDong(); });
+    });
+    Array.prototype.forEach.call(cham, function(c){
+      c.addEventListener('click', function(){ toi(parseInt(c.getAttribute('data-so'),10)); dungTuDong(); });
+    });
+    Array.prototype.forEach.call(thu, function(t){
+      t.addEventListener('click', function(){ toi(parseInt(t.getAttribute('data-so'),10)); dungTuDong(); });
+    });
+    kh.setAttribute('tabindex','0');
+    kh.addEventListener('keydown', function(e){
+      if(e.key==='ArrowLeft'){ toi(i-1); dungTuDong(); }
+      if(e.key==='ArrowRight'){ toi(i+1); dungTuDong(); }
+    });
+    function dungTuDong(){ clearInterval(tuDong); }
+    if(tong>1 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      tuDong = setInterval(function(){ toi(i+1); }, 6000);
+      kh.addEventListener('mouseenter', dungTuDong);
+    }
+  });
+}
+
+/* ═════════ MENU, NÚT QUẢN TRỊ, KHỞI ĐỘNG ═════════ */
+(function(){
+  var b=el('btnMenu'), n=el('navChinh');
+  b.addEventListener('click', function(){
+    var mo=n.classList.toggle('mo'); b.setAttribute('aria-expanded', mo?'true':'false');
+  });
+  n.addEventListener('click', function(e){
+    if(e.target.tagName==='A'){ n.classList.remove('mo'); b.setAttribute('aria-expanded','false'); }
+  });
+})();
+
+var hetToast;
+function baoNho(chu){
+  var t=el('toast'); t.textContent=chu; t.classList.add('hien');
+  clearTimeout(hetToast); hetToast=setTimeout(function(){t.classList.remove('hien');},2800);
+}
+['nutQT','nutQT2'].forEach(function(id){
+  var a = el(id);
+  if(!a) return;
+  if(QUANTRI && QUANTRI.indexOf('http') === 0){
+    a.href = QUANTRI;
+    a.target = '_blank';
+    a.rel = 'noopener';
+    a.title = 'Chỉ dành cho thầy cô có email @thcsntp.edu.vn';
+  } else {
+    a.addEventListener('click', function(e){ e.preventDefault();
+      baoNho('Khu quản trị chưa được nối.'); });
+  }
+});
+
+function ghiNguon(){
+  el('nguonChu').textContent = TRUC ? 'Dữ liệu trực tiếp' : 'Bản mẫu (chưa nối được dữ liệu)';
+  el('nguon').classList.toggle('live', TRUC);
+}
+
+el('nam').textContent = new Date().getFullYear();
+window.addEventListener('hashchange', function(){ veTrang(true); });
+veTrang();
+ghiNguon();
+goiAPI(function(kq){
+  if(kq && kq.ok){ DL=kq; TRUC=true; veTrang(false); }
+  ghiNguon();
+});
+</script>
+
+</body>
+</html>
