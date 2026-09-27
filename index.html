@@ -27,6 +27,7 @@
 .s-vanban  {--sac:#1A70B8;--sac-dam:#0A4676;--sac-mo:#EAF3FB;--sac-vien:#C2DBF0;--sac-nhat:#F6FAFE}
 .s-hoclieu {--sac:#0C7A60;--sac-dam:#06503E;--sac-mo:#E7F5F1;--sac-vien:#B6DFD2;--sac-nhat:#F5FBF9}
 .s-chuyende{--sac:#7143BC;--sac-dam:#4B2A82;--sac-mo:#F1EBFB;--sac-vien:#D8C7F0;--sac-nhat:#FAF7FE}
+.s-sanchoi {--sac:#C2410C;--sac-dam:#8C2F09;--sac-mo:#FDF0E8;--sac-vien:#F3CDB6;--sac-nhat:#FEF8F4}
 .s-hinhanh {--sac:#B4670A;--sac-dam:#7D4705;--sac-mo:#FCF2E3;--sac-vien:#EDD3AC;--sac-nhat:#FEFAF4}
 .s-hcm     {--sac:#BB0F29;--sac-dam:#84081C;--sac-mo:#FBF3E5;--sac-vien:#EBD3A8;--sac-nhat:#FDF9F1}
 .s-to      {--sac:#0D6A8C;--sac-dam:#084A63;--sac-mo:#E8F4F9;--sac-vien:#BBDDEB;--sac-nhat:#F5FBFD}
@@ -69,6 +70,7 @@ section.nen-sac{background:var(--sac-nhat);border-top:1px solid var(--sac-vien);
 
 /* ═══════════ 3. ĐẦU TRANG ═══════════ */
 header.top{position:sticky;top:0;z-index:60;background:var(--nen);border-bottom:1px solid var(--vien)}
+header.top .kh{max-width:1340px}
 .top-in{display:flex;align-items:center;gap:18px;height:96px}
 .hieu{display:flex;align-items:center;gap:13px;text-decoration:none;flex:none}
 .hieu img{width:78px;height:auto;flex:none}
@@ -77,15 +79,15 @@ header.top{position:sticky;top:0;z-index:60;background:var(--nen);border-bottom:
 .hieu span span{display:block;font-size:12.5px;color:var(--muc-3);letter-spacing:.01em}
 nav.chinh{margin-left:auto;display:flex;gap:2px}
 nav.chinh a{
-  font-size:15.5px;font-weight:500;color:var(--muc-2);text-decoration:none;
-  padding:9px 13px;border-radius:8px;transition:color .16s,background .16s;white-space:nowrap;
+  font-size:15px;font-weight:500;color:var(--muc-2);text-decoration:none;
+  padding:9px 11px;border-radius:8px;transition:color .16s,background .16s;white-space:nowrap;
 }
 nav.chinh a:hover{color:var(--xanh);background:var(--xanh-mo)}
 nav.chinh a.dang{color:var(--xanh);background:var(--xanh-mo);font-weight:600}
 .nut-qt{
-  flex:none;font-size:15px;font-weight:600;color:#fff;background:var(--xanh);
-  padding:11px 18px;border-radius:9px;text-decoration:none;border:1px solid var(--xanh);
-  transition:background .18s;
+  flex:none;font-size:14.5px;font-weight:600;color:#fff;background:var(--xanh);
+  padding:10px 15px;border-radius:9px;text-decoration:none;border:1px solid var(--xanh);
+  transition:background .18s;white-space:nowrap;
 }
 .nut-qt:hover{background:var(--xanh-dam);border-color:var(--xanh-dam)}
 .mo-menu{display:none;margin-left:auto;background:none;border:1px solid var(--vien);
@@ -219,6 +221,39 @@ nav.chinh a.dang{color:var(--xanh);background:var(--xanh-mo);font-weight:600}
 .luoi-anh button.dang{border-color:var(--sac);border-width:2px}
 .luoi-anh img{width:100%;height:100%;object-fit:cover}
 
+/* ═══════════ 10a. SÂN CHƠI ═══════════ */
+.sc-luoi{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.sc{display:flex;flex-direction:column;text-decoration:none;color:inherit;background:var(--nen);
+  border:1px solid var(--sac-vien);border-radius:14px;overflow:hidden;
+  transition:box-shadow .2s,transform .2s}
+.sc:hover{box-shadow:var(--bong-2);transform:translateY(-3px)}
+.sc-anh{display:block;aspect-ratio:16/9;background:var(--nen-3);overflow:hidden}
+.sc-anh img{width:100%;height:100%;object-fit:cover;display:block}
+.sc-chu{display:flex;flex-direction:column;gap:10px;padding:20px 20px 18px;flex:1}
+.sc-chu b{font-size:18.5px;font-weight:600;line-height:1.32;letter-spacing:-.01em;color:var(--sac-dam)}
+.sc-chu p{margin:0;font-size:15.5px;color:var(--muc-2);line-height:1.55}
+.sc-chan{margin-top:auto;padding-top:13px;border-top:1px solid var(--vien-mo);
+  display:flex;justify-content:space-between;gap:12px;font-size:14px;color:var(--muc-3)}
+.sc-chan b{font-size:14px;color:var(--sac);font-weight:600}
+.sc-bia{width:100%;max-height:340px;object-fit:cover;border-radius:14px;
+  border:1px solid var(--sac-vien);margin:0 0 22px}
+
+.sc-gui{margin-top:30px;background:var(--sac-mo);border:1px solid var(--sac-vien);
+  border-radius:16px;padding:26px 28px}
+.sc-gui b{display:block;font-family:Newsreader,Georgia,serif;font-size:22px;
+  font-weight:600;color:var(--sac-dam);margin-bottom:7px}
+.sc-gui p{margin:0 0 16px;color:var(--muc-2);font-size:16.5px;max-width:62ch}
+.sc-gui .nut.dac{background:var(--sac);border-color:var(--sac);box-shadow:var(--bong)}
+.sc-gui .nut.dac:hover{background:var(--sac-dam);border-color:var(--sac-dam)}
+
+.hs-luoi{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px}
+.hs-lop{background:var(--nen);border:1px solid var(--sac-vien);border-radius:12px;padding:16px 18px}
+.hs-lop b{display:block;font-size:15px;font-weight:700;letter-spacing:.06em;
+  color:var(--sac);margin-bottom:9px}
+.hs-lop ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:5px}
+.hs-lop li{font-size:15.5px;color:var(--muc-2)}
+.hs-lop li::marker{color:var(--muc-3);font-size:13px}
+
 /* ═══════════ 10b. ALBUM HOẠT ĐỘNG & VIDEO ═══════════ */
 .alb-luoi{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .alb{display:flex;flex-direction:column;text-decoration:none;background:var(--nen);
@@ -331,6 +366,16 @@ a:focus-visible,button:focus-visible,select:focus-visible{outline:2px solid var(
   transition:opacity .22s,transform .22s;z-index:90;max-width:88vw}
 #toast.hien{opacity:1;transform:translateX(-50%) translateY(0)}
 
+/* bảy mục thì thanh ngang không đủ chỗ nữa, thu vào nút Mục lục */
+@media (max-width:1390px){
+  nav.chinh{display:none;position:absolute;top:96px;left:0;right:0;background:var(--nen);
+    border-bottom:1px solid var(--vien);flex-direction:column;padding:12px 18px 18px;gap:2px;
+    box-shadow:var(--bong-2);z-index:70}
+  nav.chinh.mo{display:flex}
+  .mo-menu{display:block;flex:none;margin-left:auto}
+  .hieu{min-width:0}
+  .hieu span span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+}
 @media (max-width:1040px){
   .hero-in{grid-template-columns:1fr;gap:34px;padding:52px 0}
   .hero-hinh{max-width:440px}
@@ -341,15 +386,12 @@ a:focus-visible,button:focus-visible,select:focus-visible{outline:2px solid var(
   .tv-luoi{grid-template-columns:1fr}
   .luoi-anh{grid-template-columns:repeat(3,1fr)}
   .alb-luoi{grid-template-columns:repeat(2,1fr)}
+  .sc-luoi{grid-template-columns:repeat(2,1fr)}
   .chan-luoi{grid-template-columns:1fr 1fr;gap:32px}
   .chan-hieu{grid-column:1/-1}
 }
 @media (max-width:760px){
   body{font-size:16.5px}
-  nav.chinh{display:none;position:absolute;top:80px;left:0;right:0;background:var(--nen);
-    border-bottom:1px solid var(--vien);flex-direction:column;padding:12px 18px 18px;gap:2px;box-shadow:var(--bong-2)}
-  nav.chinh.mo{display:flex}
-  .mo-menu{display:block;flex:none}
   .nut-qt{display:none}
   .top-in{gap:12px;height:80px}
   .hieu{flex:1 1 auto;min-width:0}
@@ -358,7 +400,8 @@ a:focus-visible,button:focus-visible,select:focus-visible{outline:2px solid var(
   .hieu b{font-size:16px;line-height:1.25}
   .hieu span span{font-size:11.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   nav.chinh{top:80px}
-  .o-luoi,.luoi3,.namdieu,.gv-ds,.alb-luoi,.video-luoi,.tv-luoi{grid-template-columns:1fr}
+  .o-luoi,.luoi3,.namdieu,.gv-ds,.alb-luoi,.video-luoi,.tv-luoi,.sc-luoi{grid-template-columns:1fr}
+  .sc-gui{padding:20px}
   .tv{gap:14px;padding:15px}
   .tv-anh{width:86px}
   .luoi-anh{grid-template-columns:repeat(2,1fr)}
@@ -410,6 +453,7 @@ a:focus-visible,button:focus-visible,select:focus-visible{outline:2px solid var(
           <li><a href="#/vanban">Văn bản</a></li>
           <li><a href="#/hoclieu">Kho học liệu số</a></li>
           <li><a href="#/chuyende">Chuyên đề</a></li>
+          <li><a href="#/sanchoi">Sân chơi Toán học</a></li>
           <li><a href="#/hinhanh">Hình ảnh hoạt động</a></li>
           <li><a href="#/hcm">Không gian văn hoá Hồ Chí Minh</a></li>
           <li><a href="#/to">Thành viên tổ</a></li>
@@ -442,7 +486,7 @@ a:focus-visible,button:focus-visible,select:focus-visible{outline:2px solid var(
 
 var API = "https://script.google.com/macros/s/AKfycbxaQpry1tDXup9VM6VvxvHc55G-PWbHqUo0rwhweaL1g-9NkXKq5JWoaJ8x2s7UVjQF/exec";
 var QUANTRI = "https://script.google.com/a/macros/thcsntp.edu.vn/s/AKfycbzo87W92RrvFXTjlTrBqsWMnFf638sibFO9vNcBF6WYFheyuoDMB47KXPLVHh7GC_Ji/exec?trang=quantri";
-var MAU = {"ok":true,"thongTin":{"tenTruong":"Trường THCS Nguyễn Tri Phương","tenTo":"Tổ Toán - Tin","tenTrang":"Hoạt động môn Toán","diaChi":"Phường Diên Hồng, Thành phố Hồ Chí Minh","mauChinh":"#1A70B8","heroKieu":"parabol","heroAnh":""},"duLieu":{"VanBan":[{"id":"VB001","soHieu":"1234/SGDĐT-GDTrH","ngayBanHanh":"2026-08-20","coQuan":"Sở GD&ĐT TP.HCM","loai":"Công văn","trichYeu":"Hướng dẫn thực hiện nhiệm vụ giáo dục trung học năm học 2026-2027","namHoc":"2026-2027","fileUrl":"","hieuLuc":"Còn hiệu lực","trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"},{"id":"VB002","soHieu":"45/KH-THCSNTP","ngayBanHanh":"2026-09-01","coQuan":"Trường THCS Nguyễn Tri Phương","loai":"Kế hoạch","trichYeu":"Kế hoạch giáo dục nhà trường năm học 2026-2027","namHoc":"2026-2027","fileUrl":"","hieuLuc":"Còn hiệu lực","trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"},{"id":"VB003","soHieu":"03/KH-TT","ngayBanHanh":"2026-09-05","coQuan":"Tổ Toán","loai":"Kế hoạch","trichYeu":"Kế hoạch hoạt động Tổ Toán năm học 2026-2027","namHoc":"2026-2027","fileUrl":"","hieuLuc":"Còn hiệu lực","trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"},{"id":"VB004","soHieu":"1102/SGDĐT-KTKĐ","ngayBanHanh":"2026-08-28","coQuan":"Sở GD&ĐT TP.HCM","loai":"Hướng dẫn","trichYeu":"Hướng dẫn kiểm tra, đánh giá học sinh trung học cơ sở theo Thông tư 22","namHoc":"2026-2027","fileUrl":"","hieuLuc":"Còn hiệu lực","trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"},{"id":"VB005","soHieu":"07/QĐ-THCSNTP","ngayBanHanh":"2026-09-03","coQuan":"Trường THCS Nguyễn Tri Phương","loai":"Quyết định","trichYeu":"Quyết định thành lập các tổ chuyên môn năm học 2026-2027","namHoc":"2026-2027","fileUrl":"","hieuLuc":"Còn hiệu lực","trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"}],"HocLieu":[{"id":"HL001","tieuDe":"Phiếu bài tập: Căn bậc hai và căn bậc ba","mon":"Toán","khoi":"9","loai":"Phiếu bài tập","chuDe":"Đại số","moTa":"Bộ 30 bài tập phân dạng, có đáp án chi tiết.","anhUrl":"","fileUrl":"","luotTai":0,"trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"},{"id":"HL002","tieuDe":"Bài giảng: Hình đồng dạng trong thực tiễn","mon":"Toán","khoi":"8","loai":"Bài giảng","chuDe":"Hình học","moTa":"Bài trình chiếu kèm hình vẽ TikZ và mô hình GeoGebra.","anhUrl":"","fileUrl":"","luotTai":0,"trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"},{"id":"HL003","tieuDe":"Đề kiểm tra giữa kì I - Toán 6","mon":"Toán","khoi":"6","loai":"Đề kiểm tra","chuDe":"Đại số","moTa":"Ma trận, bản đặc tả và đề minh hoạ theo Thông tư 22.","anhUrl":"","fileUrl":"","luotTai":0,"trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"},{"id":"HL004","tieuDe":"Kế hoạch bài dạy: Biểu đồ hình quạt tròn","mon":"Toán","khoi":"7","loai":"Kế hoạch bài dạy","chuDe":"Thực tế","moTa":"Giáo án soạn theo Công văn 5512, kèm phiếu học tập.","anhUrl":"","fileUrl":"","luotTai":0,"trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"},{"id":"HL005","tieuDe":"Chuyên đề bồi dưỡng: Bất đẳng thức Cauchy","mon":"Toán","khoi":"9","loai":"Phiếu bài tập","chuDe":"Đại số","moTa":"Tài liệu bồi dưỡng học sinh giỏi, 25 bài từ cơ bản đến nâng cao.","anhUrl":"","fileUrl":"","luotTai":0,"trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"},{"id":"HL006","tieuDe":"Bài giảng: Hai tam giác bằng nhau","mon":"Toán","khoi":"7","loai":"Bài giảng","chuDe":"Hình học","moTa":"Slide kèm hình động dựng bằng GeoGebra.","anhUrl":"","fileUrl":"","luotTai":0,"trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"}],"ChuyenDe":[{"id":"CD001","tieuDe":"Dạy học Thống kê và Xác suất theo hướng gắn với thực tiễn","nguoiBaoCao":"Tổ Toán","ngayBaoCao":"2026-09-15","capDo":"Cấp tổ","anhBia":"","tomTat":"Chuyên đề bàn về cách khai thác số liệu đời sống để hình thành khái niệm thống kê cho học sinh lớp 8-9.","noiDung":"<p>Chương trình GDPT 2018 đưa Thống kê và Xác suất thành một mạch kiến thức xuyên suốt từ lớp 6 đến lớp 9. Điểm mới không nằm ở khối lượng kiến thức, mà ở chỗ học sinh phải làm việc với <b>số liệu thật</b>.</p><p>Chuyên đề đề xuất ba nguồn số liệu quen thuộc mà giáo viên có thể khai thác ngay: sĩ số và kết quả học tập của chính lớp mình, số liệu thời tiết của thành phố, và số liệu khảo sát nhỏ do học sinh tự thu thập.</p><p>Phần cuối trình bày một tiết dạy minh hoạ ở lớp 8 với chủ đề biểu đồ cột kép, kèm phiếu học tập và bảng tiêu chí đánh giá sản phẩm nhóm.</p>","fileDinhKem":"","thuVienAnh":"","trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"},{"id":"CD002","tieuDe":"Sử dụng GeoGebra trong dạy học Hình học lớp 8","nguoiBaoCao":"Tổ Toán","ngayBaoCao":"2026-10-20","capDo":"Cấp tổ","anhBia":"","tomTat":"Giới thiệu cách dựng hình động để học sinh tự phát hiện tính chất, thay vì được thông báo kết quả.","noiDung":"","fileDinhKem":"","thuVienAnh":"","trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"}],"KhongGianHCM":[{"id":"HCM001","khoi":"NamDieuBacDay","tieuDe":"Yêu Tổ quốc, yêu đồng bào","moTa":"","noiDung":"","anhUrl":"","namMoc":"","thuTu":1,"nguon":"Năm điều Bác Hồ dạy thiếu niên, nhi đồng","trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"},{"id":"HCM002","khoi":"NamDieuBacDay","tieuDe":"Học tập tốt, lao động tốt","moTa":"","noiDung":"","anhUrl":"","namMoc":"","thuTu":2,"nguon":"Năm điều Bác Hồ dạy thiếu niên, nhi đồng","trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"},{"id":"HCM003","khoi":"NamDieuBacDay","tieuDe":"Đoàn kết tốt, kỷ luật tốt","moTa":"","noiDung":"","anhUrl":"","namMoc":"","thuTu":3,"nguon":"Năm điều Bác Hồ dạy thiếu niên, nhi đồng","trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"},{"id":"HCM004","khoi":"NamDieuBacDay","tieuDe":"Giữ gìn vệ sinh thật tốt","moTa":"","noiDung":"","anhUrl":"","namMoc":"","thuTu":4,"nguon":"Năm điều Bác Hồ dạy thiếu niên, nhi đồng","trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"},{"id":"HCM005","khoi":"NamDieuBacDay","tieuDe":"Khiêm tốn, thật thà, dũng cảm","moTa":"","noiDung":"","anhUrl":"","namMoc":"","thuTu":5,"nguon":"Năm điều Bác Hồ dạy thiếu niên, nhi đồng","trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"},{"id":"HCM006","khoi":"TrichDan","tieuDe":"Vì lợi ích mười năm thì phải trồng cây, vì lợi ích trăm năm thì phải trồng người","moTa":"","noiDung":"","anhUrl":"","namMoc":1958,"thuTu":1,"nguon":"Bài nói tại lớp học chính trị của giáo viên, năm 1958","trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"},{"id":"HCM008","khoi":"TrichDan","tieuDe":"Non sông Việt Nam có trở nên tươi đẹp hay không, dân tộc Việt Nam có bước tới đài vinh quang để sánh vai với các cường quốc năm châu được hay không, chính là nhờ một phần lớn ở công học tập của các em","moTa":"","noiDung":"","anhUrl":"","namMoc":1945,"thuTu":2,"nguon":"Thư gửi học sinh nhân ngày khai trường đầu tiên, tháng 9 năm 1945","trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"},{"id":"HCM007","khoi":"DongThoiGian","tieuDe":"Ra đi tìm đường cứu nước","moTa":"Ngày 5/6/1911, tại Bến Nhà Rồng, người thanh niên Nguyễn Tất Thành lên tàu rời Tổ quốc.","noiDung":"","anhUrl":"","namMoc":1911,"thuTu":1,"nguon":"","trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"},{"id":"HCM009","khoi":"DongThoiGian","tieuDe":"Đọc Tuyên ngôn Độc lập","moTa":"Ngày 2/9/1945, tại Quảng trường Ba Đình, Người đọc bản Tuyên ngôn Độc lập khai sinh nước Việt Nam Dân chủ Cộng hoà.","noiDung":"","anhUrl":"","namMoc":1945,"thuTu":2,"nguon":"","trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"}],"HoatDong":[{"id":"HD001","tieuDe":"Sinh hoạt chuyên môn tháng 9: nghiên cứu bài học Toán 8","ngay":"2026-09-12","loai":"Sinh hoạt chuyên môn","moTa":"Tổ Toán cùng phân tích một tiết dạy về hình đồng dạng theo hướng nghiên cứu bài học: dự giờ, ghi nhận hoạt động của học sinh rồi cùng nhau điều chỉnh kế hoạch bài dạy.","anhUrl":"","fileUrl":"","trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06","nguoiDuyet":"","ngayDuyet":"","lyDo":"","khuVuc":"Sinh hoạt chuyên môn","anhBia":"","dsAnh":"mau:0\nmau:2\nmau:5","dsVideo":""},{"id":"HD002","tieuDe":"Tiết dạy minh hoạ: Biểu đồ hình quạt tròn - Toán 7","ngay":"2026-09-18","loai":"Tiết dạy và dự giờ","moTa":"Học sinh tự khảo sát sở thích của lớp rồi dựng biểu đồ từ số liệu mình thu thập được.","anhUrl":"","fileUrl":"","trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06","nguoiDuyet":"","ngayDuyet":"","lyDo":"","khuVuc":"Tiết dạy và dự giờ","anhBia":"","dsAnh":"mau:3\nmau:1","dsVideo":"https://www.youtube.com/watch?v=ZPPgMmxWRKY"},{"id":"HD003","tieuDe":"Ngày hội Toán học nhỏ của khối 6","ngay":"2026-09-20","loai":"Hội thi và sân chơi Toán học","moTa":"Các trạm trò chơi: tính nhanh, xếp hình, giải mật thư bằng phép tính.","anhUrl":"","fileUrl":"","trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06","nguoiDuyet":"","ngayDuyet":"","lyDo":"","khuVuc":"Hội thi và sân chơi Toán học","anhBia":"","dsAnh":"mau:1\nmau:4\nmau:2","dsVideo":""},{"id":"HD004","tieuDe":"Tuyên dương học sinh đạt giải Toán cấp quận","ngay":"2026-09-24","loai":"Khen thưởng","moTa":"Danh sách học sinh được tuyên dương trước cờ trong tiết sinh hoạt đầu tuần.","anhUrl":"","fileUrl":"","trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06","nguoiDuyet":"","ngayDuyet":"","lyDo":"","khuVuc":"Khen thưởng","anhBia":"","dsAnh":"mau:4","dsVideo":""}],"GiaoVien":[{"id":"GV001","hoTen":"Trương Trọng Hữu","chucVu":"Tổ trưởng","anhUrl":"","gioiThieu":"Giáo viên Toán, phụ trách chuyên môn và trang web của tổ. Bồi dưỡng học sinh giỏi khối 8, 9.","trangThai":"DaDuyet"},{"id":"GV002","hoTen":"Nguyễn Thị Lan Anh","chucVu":"Tổ phó","anhUrl":"","gioiThieu":"Dạy Toán khối 6 và 7. Quan tâm tới việc đưa số liệu đời sống vào bài dạy Thống kê.","trangThai":"DaDuyet"},{"id":"GV003","hoTen":"Lê Minh Cường","chucVu":"Giáo viên","anhUrl":"","gioiThieu":"Dạy Toán khối 8. Thường dùng GeoGebra để học sinh tự phát hiện tính chất hình học.","trangThai":"DaDuyet"},{"id":"GV004","hoTen":"Phạm Thu Hà","chucVu":"Giáo viên","anhUrl":"","gioiThieu":"Dạy Toán khối 9, phụ trách ôn thi tuyển sinh lớp 10.","trangThai":"DaDuyet"}],"ThongBao":[{"id":"TB001","ngay":"2026-09-06","noiDung":"Trang Hoạt động môn Toán chính thức đi vào hoạt động.","link":"","mucDo":"Tin","ngayHetHan":"","trangThai":"DaDuyet"}],"NoiDungTrang":[{"id":"trangchu","ten":"Trang chủ","tieuDe":"HOẠT ĐỘNG MÔN TOÁN TRƯỜNG THCS NGUYỄN TRI PHƯƠNG","moTa":"Toán học không nằm yên trong sách vở. Đây là nơi học sinh Nguyễn Tri Phương học, luyện và khám phá môn Toán mỗi ngày.","thuTu":1},{"id":"vanban","ten":"Văn bản","tieuDe":"VĂN BẢN","moTa":"Công văn, kế hoạch và hướng dẫn của Sở Giáo dục và Đào tạo, của trường và của tổ Toán.","thuTu":2},{"id":"hoclieu","ten":"Kho học liệu","tieuDe":"KHO HỌC LIỆU SỐ CỦA MÔN TOÁN","moTa":"Phiếu bài tập, bài giảng, đề kiểm tra và kế hoạch bài dạy từ khối 6 đến khối 9.","thuTu":3},{"id":"chuyende","ten":"Chuyên đề","tieuDe":"CHUYÊN ĐỀ MÔN TOÁN","moTa":"Báo cáo chuyên môn và nội dung sinh hoạt tổ theo hướng nghiên cứu bài học.","thuTu":4},{"id":"hinhanh","ten":"Hình ảnh hoạt động","tieuDe":"HOẠT ĐỘNG MÔN TOÁN","moTa":"Những khoảnh khắc của thầy và trò môn Toán trong năm học, xếp theo từng khu vực hoạt động.","thuTu":5},{"id":"hcm","ten":"Không gian văn hoá Hồ Chí Minh","tieuDe":"KHÔNG GIAN VĂN HOÁ HỒ CHÍ MINH","moTa":"Lời Bác dạy, tư liệu và những việc thầy trò môn Toán làm theo Bác mỗi ngày.","thuTu":6},{"id":"to","ten":"Thành viên","tieuDe":"TỔ TOÁN - TIN","moTa":"Thành viên và hoạt động chuyên môn của tổ, Trường THCS Nguyễn Tri Phương.","thuTu":7}]},"capNhat":"2026-09-06T06:11:03.172Z"};
+var MAU = {"ok":true,"thongTin":{"tenTruong":"Trường THCS Nguyễn Tri Phương","tenTo":"Tổ Toán - Tin","tenTrang":"Hoạt động môn Toán","diaChi":"Phường Diên Hồng, Thành phố Hồ Chí Minh","mauChinh":"#1A70B8","heroKieu":"parabol","heroAnh":""},"duLieu":{"VanBan":[{"id":"VB001","soHieu":"1234/SGDĐT-GDTrH","ngayBanHanh":"2026-08-20","coQuan":"Sở GD&ĐT TP.HCM","loai":"Công văn","trichYeu":"Hướng dẫn thực hiện nhiệm vụ giáo dục trung học năm học 2026-2027","namHoc":"2026-2027","fileUrl":"","hieuLuc":"Còn hiệu lực","trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"},{"id":"VB002","soHieu":"45/KH-THCSNTP","ngayBanHanh":"2026-09-01","coQuan":"Trường THCS Nguyễn Tri Phương","loai":"Kế hoạch","trichYeu":"Kế hoạch giáo dục nhà trường năm học 2026-2027","namHoc":"2026-2027","fileUrl":"","hieuLuc":"Còn hiệu lực","trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"},{"id":"VB003","soHieu":"03/KH-TT","ngayBanHanh":"2026-09-05","coQuan":"Tổ Toán","loai":"Kế hoạch","trichYeu":"Kế hoạch hoạt động Tổ Toán năm học 2026-2027","namHoc":"2026-2027","fileUrl":"","hieuLuc":"Còn hiệu lực","trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"},{"id":"VB004","soHieu":"1102/SGDĐT-KTKĐ","ngayBanHanh":"2026-08-28","coQuan":"Sở GD&ĐT TP.HCM","loai":"Hướng dẫn","trichYeu":"Hướng dẫn kiểm tra, đánh giá học sinh trung học cơ sở theo Thông tư 22","namHoc":"2026-2027","fileUrl":"","hieuLuc":"Còn hiệu lực","trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"},{"id":"VB005","soHieu":"07/QĐ-THCSNTP","ngayBanHanh":"2026-09-03","coQuan":"Trường THCS Nguyễn Tri Phương","loai":"Quyết định","trichYeu":"Quyết định thành lập các tổ chuyên môn năm học 2026-2027","namHoc":"2026-2027","fileUrl":"","hieuLuc":"Còn hiệu lực","trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"}],"HocLieu":[{"id":"HL001","tieuDe":"Phiếu bài tập: Căn bậc hai và căn bậc ba","mon":"Toán","khoi":"9","loai":"Phiếu bài tập","chuDe":"Đại số","moTa":"Bộ 30 bài tập phân dạng, có đáp án chi tiết.","anhUrl":"","fileUrl":"","luotTai":0,"trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"},{"id":"HL002","tieuDe":"Bài giảng: Hình đồng dạng trong thực tiễn","mon":"Toán","khoi":"8","loai":"Bài giảng","chuDe":"Hình học","moTa":"Bài trình chiếu kèm hình vẽ TikZ và mô hình GeoGebra.","anhUrl":"","fileUrl":"","luotTai":0,"trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"},{"id":"HL003","tieuDe":"Đề kiểm tra giữa kì I - Toán 6","mon":"Toán","khoi":"6","loai":"Đề kiểm tra","chuDe":"Đại số","moTa":"Ma trận, bản đặc tả và đề minh hoạ theo Thông tư 22.","anhUrl":"","fileUrl":"","luotTai":0,"trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"},{"id":"HL004","tieuDe":"Kế hoạch bài dạy: Biểu đồ hình quạt tròn","mon":"Toán","khoi":"7","loai":"Kế hoạch bài dạy","chuDe":"Thực tế","moTa":"Giáo án soạn theo Công văn 5512, kèm phiếu học tập.","anhUrl":"","fileUrl":"","luotTai":0,"trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"},{"id":"HL005","tieuDe":"Chuyên đề bồi dưỡng: Bất đẳng thức Cauchy","mon":"Toán","khoi":"9","loai":"Phiếu bài tập","chuDe":"Đại số","moTa":"Tài liệu bồi dưỡng học sinh giỏi, 25 bài từ cơ bản đến nâng cao.","anhUrl":"","fileUrl":"","luotTai":0,"trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"},{"id":"HL006","tieuDe":"Bài giảng: Hai tam giác bằng nhau","mon":"Toán","khoi":"7","loai":"Bài giảng","chuDe":"Hình học","moTa":"Slide kèm hình động dựng bằng GeoGebra.","anhUrl":"","fileUrl":"","luotTai":0,"trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"}],"ChuyenDe":[{"id":"CD001","tieuDe":"Dạy học Thống kê và Xác suất theo hướng gắn với thực tiễn","nguoiBaoCao":"Tổ Toán","ngayBaoCao":"2026-09-15","capDo":"Cấp tổ","anhBia":"","tomTat":"Chuyên đề bàn về cách khai thác số liệu đời sống để hình thành khái niệm thống kê cho học sinh lớp 8-9.","noiDung":"<p>Chương trình GDPT 2018 đưa Thống kê và Xác suất thành một mạch kiến thức xuyên suốt từ lớp 6 đến lớp 9. Điểm mới không nằm ở khối lượng kiến thức, mà ở chỗ học sinh phải làm việc với <b>số liệu thật</b>.</p><p>Chuyên đề đề xuất ba nguồn số liệu quen thuộc mà giáo viên có thể khai thác ngay: sĩ số và kết quả học tập của chính lớp mình, số liệu thời tiết của thành phố, và số liệu khảo sát nhỏ do học sinh tự thu thập.</p><p>Phần cuối trình bày một tiết dạy minh hoạ ở lớp 8 với chủ đề biểu đồ cột kép, kèm phiếu học tập và bảng tiêu chí đánh giá sản phẩm nhóm.</p>","fileDinhKem":"","thuVienAnh":"","trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"},{"id":"CD002","tieuDe":"Sử dụng GeoGebra trong dạy học Hình học lớp 8","nguoiBaoCao":"Tổ Toán","ngayBaoCao":"2026-10-20","capDo":"Cấp tổ","anhBia":"","tomTat":"Giới thiệu cách dựng hình động để học sinh tự phát hiện tính chất, thay vì được thông báo kết quả.","noiDung":"","fileDinhKem":"","thuVienAnh":"","trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"}],"KhongGianHCM":[{"id":"HCM001","khoi":"NamDieuBacDay","tieuDe":"Yêu Tổ quốc, yêu đồng bào","moTa":"","noiDung":"","anhUrl":"","namMoc":"","thuTu":1,"nguon":"Năm điều Bác Hồ dạy thiếu niên, nhi đồng","trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"},{"id":"HCM002","khoi":"NamDieuBacDay","tieuDe":"Học tập tốt, lao động tốt","moTa":"","noiDung":"","anhUrl":"","namMoc":"","thuTu":2,"nguon":"Năm điều Bác Hồ dạy thiếu niên, nhi đồng","trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"},{"id":"HCM003","khoi":"NamDieuBacDay","tieuDe":"Đoàn kết tốt, kỷ luật tốt","moTa":"","noiDung":"","anhUrl":"","namMoc":"","thuTu":3,"nguon":"Năm điều Bác Hồ dạy thiếu niên, nhi đồng","trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"},{"id":"HCM004","khoi":"NamDieuBacDay","tieuDe":"Giữ gìn vệ sinh thật tốt","moTa":"","noiDung":"","anhUrl":"","namMoc":"","thuTu":4,"nguon":"Năm điều Bác Hồ dạy thiếu niên, nhi đồng","trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"},{"id":"HCM005","khoi":"NamDieuBacDay","tieuDe":"Khiêm tốn, thật thà, dũng cảm","moTa":"","noiDung":"","anhUrl":"","namMoc":"","thuTu":5,"nguon":"Năm điều Bác Hồ dạy thiếu niên, nhi đồng","trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"},{"id":"HCM006","khoi":"TrichDan","tieuDe":"Vì lợi ích mười năm thì phải trồng cây, vì lợi ích trăm năm thì phải trồng người","moTa":"","noiDung":"","anhUrl":"","namMoc":1958,"thuTu":1,"nguon":"Bài nói tại lớp học chính trị của giáo viên, năm 1958","trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"},{"id":"HCM008","khoi":"TrichDan","tieuDe":"Non sông Việt Nam có trở nên tươi đẹp hay không, dân tộc Việt Nam có bước tới đài vinh quang để sánh vai với các cường quốc năm châu được hay không, chính là nhờ một phần lớn ở công học tập của các em","moTa":"","noiDung":"","anhUrl":"","namMoc":1945,"thuTu":2,"nguon":"Thư gửi học sinh nhân ngày khai trường đầu tiên, tháng 9 năm 1945","trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"},{"id":"HCM007","khoi":"DongThoiGian","tieuDe":"Ra đi tìm đường cứu nước","moTa":"Ngày 5/6/1911, tại Bến Nhà Rồng, người thanh niên Nguyễn Tất Thành lên tàu rời Tổ quốc.","noiDung":"","anhUrl":"","namMoc":1911,"thuTu":1,"nguon":"","trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"},{"id":"HCM009","khoi":"DongThoiGian","tieuDe":"Đọc Tuyên ngôn Độc lập","moTa":"Ngày 2/9/1945, tại Quảng trường Ba Đình, Người đọc bản Tuyên ngôn Độc lập khai sinh nước Việt Nam Dân chủ Cộng hoà.","noiDung":"","anhUrl":"","namMoc":1945,"thuTu":2,"nguon":"","trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"}],"SanChoi":[{"id":"SC001","tieuDe":"Thử thách Toán học tuần 1","khoi":"6, 7","moTa":"Mỗi tuần một bài toán vui. Em làm ra giấy, chụp ảnh rồi gửi lên đây.","theLe":"<p>Đề bài nằm trong tệp đính kèm. Em làm ra giấy, ghi rõ họ tên và lớp ở góc trên, rồi chụp ảnh thật rõ gửi lên.</p><p>Bài làm được chấm dựa trên cách trình bày lời giải, không chỉ đáp số.</p>","anhBia":"","fileDe":"","ngayBatDau":"2026-09-20","ngayHetHan":"2026-12-31","choNop":true,"coMa":true,"trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"},{"id":"SC002","tieuDe":"Ngày hội Toán học khối 9","khoi":"9","moTa":"Giải nhanh 10 bài trắc nghiệm rồi nộp ảnh bài làm.","theLe":"<p>Mỗi bài 1 điểm. Thời gian làm bài 45 phút.</p>","anhBia":"","fileDe":"","ngayBatDau":"2026-08-01","ngayHetHan":"2026-08-20","choNop":true,"coMa":false,"trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06"}],"BaiNop":[{"idSanChoi":"SC001","hoTen":"Nguyễn Văn An","lop":"7A1","thoiGian":"2026-09-25T09:15"},{"idSanChoi":"SC001","hoTen":"Trần Thị Bình","lop":"7A1","thoiGian":"2026-09-25T10:02"},{"idSanChoi":"SC001","hoTen":"Lê Hoàng Chi","lop":"6A2","thoiGian":"2026-09-26T07:40"},{"idSanChoi":"SC002","hoTen":"Phạm Quốc Dũng","lop":"9A3","thoiGian":"2026-08-15T14:20"}],"HoatDong":[{"id":"HD001","tieuDe":"Sinh hoạt chuyên môn tháng 9: nghiên cứu bài học Toán 8","ngay":"2026-09-12","loai":"Sinh hoạt chuyên môn","moTa":"Tổ Toán cùng phân tích một tiết dạy về hình đồng dạng theo hướng nghiên cứu bài học: dự giờ, ghi nhận hoạt động của học sinh rồi cùng nhau điều chỉnh kế hoạch bài dạy.","anhUrl":"","fileUrl":"","trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06","nguoiDuyet":"","ngayDuyet":"","lyDo":"","khuVuc":"Sinh hoạt chuyên môn","anhBia":"","dsAnh":"mau:0\nmau:2\nmau:5","dsVideo":""},{"id":"HD002","tieuDe":"Tiết dạy minh hoạ: Biểu đồ hình quạt tròn - Toán 7","ngay":"2026-09-18","loai":"Tiết dạy và dự giờ","moTa":"Học sinh tự khảo sát sở thích của lớp rồi dựng biểu đồ từ số liệu mình thu thập được.","anhUrl":"","fileUrl":"","trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06","nguoiDuyet":"","ngayDuyet":"","lyDo":"","khuVuc":"Tiết dạy và dự giờ","anhBia":"","dsAnh":"mau:3\nmau:1","dsVideo":"https://www.youtube.com/watch?v=ZPPgMmxWRKY"},{"id":"HD003","tieuDe":"Ngày hội Toán học nhỏ của khối 6","ngay":"2026-09-20","loai":"Hội thi và sân chơi Toán học","moTa":"Các trạm trò chơi: tính nhanh, xếp hình, giải mật thư bằng phép tính.","anhUrl":"","fileUrl":"","trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06","nguoiDuyet":"","ngayDuyet":"","lyDo":"","khuVuc":"Hội thi và sân chơi Toán học","anhBia":"","dsAnh":"mau:1\nmau:4\nmau:2","dsVideo":""},{"id":"HD004","tieuDe":"Tuyên dương học sinh đạt giải Toán cấp quận","ngay":"2026-09-24","loai":"Khen thưởng","moTa":"Danh sách học sinh được tuyên dương trước cờ trong tiết sinh hoạt đầu tuần.","anhUrl":"","fileUrl":"","trangThai":"DaDuyet","nguoiDang":"tthuu@thcsntp.edu.vn","ngayDang":"2026-09-06","nguoiDuyet":"","ngayDuyet":"","lyDo":"","khuVuc":"Khen thưởng","anhBia":"","dsAnh":"mau:4","dsVideo":""}],"GiaoVien":[{"id":"GV001","hoTen":"Trương Trọng Hữu","chucVu":"Tổ trưởng","anhUrl":"","gioiThieu":"Giáo viên Toán, phụ trách chuyên môn và trang web của tổ. Bồi dưỡng học sinh giỏi khối 8, 9.","trangThai":"DaDuyet"},{"id":"GV002","hoTen":"Nguyễn Thị Lan Anh","chucVu":"Tổ phó","anhUrl":"","gioiThieu":"Dạy Toán khối 6 và 7. Quan tâm tới việc đưa số liệu đời sống vào bài dạy Thống kê.","trangThai":"DaDuyet"},{"id":"GV003","hoTen":"Lê Minh Cường","chucVu":"Giáo viên","anhUrl":"","gioiThieu":"Dạy Toán khối 8. Thường dùng GeoGebra để học sinh tự phát hiện tính chất hình học.","trangThai":"DaDuyet"},{"id":"GV004","hoTen":"Phạm Thu Hà","chucVu":"Giáo viên","anhUrl":"","gioiThieu":"Dạy Toán khối 9, phụ trách ôn thi tuyển sinh lớp 10.","trangThai":"DaDuyet"}],"ThongBao":[{"id":"TB001","ngay":"2026-09-06","noiDung":"Trang Hoạt động môn Toán chính thức đi vào hoạt động.","link":"","mucDo":"Tin","ngayHetHan":"","trangThai":"DaDuyet"}],"NoiDungTrang":[{"id":"trangchu","ten":"Trang chủ","tieuDe":"HOẠT ĐỘNG MÔN TOÁN TRƯỜNG THCS NGUYỄN TRI PHƯƠNG","moTa":"Toán học không nằm yên trong sách vở. Đây là nơi học sinh Nguyễn Tri Phương học, luyện và khám phá môn Toán mỗi ngày.","thuTu":1},{"id":"vanban","ten":"Văn bản","tieuDe":"VĂN BẢN","moTa":"Công văn, kế hoạch và hướng dẫn của Sở Giáo dục và Đào tạo, của trường và của tổ Toán.","thuTu":2},{"id":"hoclieu","ten":"Kho học liệu","tieuDe":"KHO HỌC LIỆU SỐ CỦA MÔN TOÁN","moTa":"Phiếu bài tập, bài giảng, đề kiểm tra và kế hoạch bài dạy từ khối 6 đến khối 9.","thuTu":3},{"id":"chuyende","ten":"Chuyên đề","tieuDe":"CHUYÊN ĐỀ MÔN TOÁN","moTa":"Báo cáo chuyên môn và nội dung sinh hoạt tổ theo hướng nghiên cứu bài học.","thuTu":4},{"id":"hinhanh","ten":"Hình ảnh hoạt động","tieuDe":"HOẠT ĐỘNG MÔN TOÁN","moTa":"Những khoảnh khắc của thầy và trò môn Toán trong năm học, xếp theo từng khu vực hoạt động.","thuTu":5},{"id":"hcm","ten":"Không gian văn hoá Hồ Chí Minh","tieuDe":"KHÔNG GIAN VĂN HOÁ HỒ CHÍ MINH","moTa":"Lời Bác dạy, tư liệu và những việc thầy trò môn Toán làm theo Bác mỗi ngày.","thuTu":6},{"id":"to","ten":"Thành viên","tieuDe":"TỔ TOÁN - TIN","moTa":"Thành viên và hoạt động chuyên môn của tổ, Trường THCS Nguyễn Tri Phương.","thuTu":7}]},"capNhat":"2026-09-06T06:11:03.172Z"};
 var DL = MAU, TRUC = false;
 
 /* ───────── tiện ích ───────── */
@@ -602,6 +646,9 @@ var TRANG = [
   {ma:'chuyende', ten:'Chuyên đề', lop:'s-chuyende',
    tenDay:'Chuyên đề', tieuDe:'CHUYÊN ĐỀ MÔN TOÁN',
    mo:'Báo cáo chuyên môn và nội dung sinh hoạt tổ theo hướng nghiên cứu bài học.'},
+  {ma:'sanchoi',  ten:'Sân chơi Toán học', lop:'s-sanchoi',
+   tenDay:'Sân chơi Toán học', tieuDe:'SÂN CHƠI TOÁN HỌC',
+   mo:'Nơi học sinh làm bài, chụp ảnh và gửi lên cho thầy cô. Mỗi đợt một thử thách.'},
   {ma:'hinhanh',  ten:'Hình ảnh',  lop:'s-hinhanh',
    tenDay:'Hình ảnh hoạt động', tieuDe:'HOẠT ĐỘNG MÔN TOÁN',
    mo:'Những khoảnh khắc của thầy và trò môn Toán trong năm học.'},
@@ -632,6 +679,8 @@ function veTrang(cuon){
   else if(ma==='hoclieu')  app.innerHTML = dauTrang(t) + trangHocLieu();
   else if(ma==='chuyende') app.innerHTML = d[1] ? dauTrang(t,'chi tiết') + trangChuyenDeChiTiet(d[1])
                                                : dauTrang(t) + trangChuyenDe();
+  else if(ma==='sanchoi')  app.innerHTML = d[1] ? dauTrang(t,'chi tiết') + trangSanChoiChiTiet(d[1])
+                                                : dauTrang(t) + trangSanChoi();
   else if(ma==='hinhanh')  app.innerHTML = d[1] ? dauTrang(t,'album') + trangAlbum(d[1])
                                                 : dauTrang(t) + trangHinhAnh();
   else if(ma==='hcm')      app.innerHTML = dauTrang(t) + trangHCM();
@@ -685,11 +734,14 @@ function trangTongQuan(){
     vanban:'<path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/>',
     hoclieu:'<path d="M12 4L3 8l9 4 9-4z"/><path d="M3 12l9 4 9-4M3 16l9 4 9-4"/>',
     chuyende:'<path d="M3 4h18v12H3z"/><path d="M12 16v4M8 20h8M8 11l2.5 2.5L16 8"/>',
+    sanchoi:'<path d="M12 2.9l7.5 4.3v9.6L12 21.1 4.5 16.8V7.2z"/><path d="M9.6 9.8a2.4 2.4 0 113.3 3.3c-.7.6-.9 1-.9 1.8"/><circle cx="12" cy="17.3" r=".9" fill="currentColor" stroke="none"/>',
     hinhanh:'<rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.6"/><path d="M21 15l-5-5L7 19"/>',
     hcm:'<path d="M12 2.8l2.7 5.7 6.1.9-4.4 4.4 1 6.2-5.4-2.9-5.4 2.9 1-6.2L3.2 9.4l6.1-.9z"/>',
     to:'<path d="M16 20v-2a4 4 0 00-4-4H7a4 4 0 00-4 4v2"/><circle cx="9.5" cy="7" r="3.2"/><path d="M17 11a3 3 0 100-6M21 20v-2a3.6 3.6 0 00-2.5-3.4"/>'
   };
+  var scDs = bang('SanChoi'), scMo = scDs.filter(dangMo).length;
   var DEM = {vanban:vb.length+' văn bản', hoclieu:hl.length+' học liệu', chuyende:cd.length+' chuyên đề',
+             sanchoi:(scMo ? scMo+' đợt đang mở' : scDs.length+' đợt'),
              hinhanh:ha.length+' hình ảnh', hcm:'Bước vào', to:gv.length+' thành viên'};
   h += '<section><div class="kh"><div class="o-luoi">'
     + TRANG.map(function(t){
@@ -734,6 +786,15 @@ function trangTongQuan(){
   } else h += '<p class="rong">Chưa có chuyên đề nào được đăng.</p>';
   h += '</div></section>';
 
+  /* sân chơi */
+  var scNoi = scDs.filter(dangMo);
+  if(scNoi.length){
+    h += '<section class="nen-sac s-sanchoi"><div class="kh">'
+      + mucDau('','SÂN CHƠI TOÁN HỌC','','#/sanchoi','Tất cả sân chơi')
+      + '<div class="sc-luoi">' + scNoi.slice(0,3).map(theSanChoi).join('') + '</div>'
+      + '</div></section>';
+  }
+
   /* không gian văn hóa HCM */
   var td = hcm.filter(function(x){return x.khoi==='TrichDan';})[0];
   h += '<section class="hcm-nen s-hcm"><div class="kh">'
@@ -750,7 +811,8 @@ function mucDau(nhan,tieu,mo,link,chuLink){
     + (nhan ? '<span class="nhan">'+E(nhan)+'</span>' : '')
     + '<h2>'+E(tieu)+'</h2>'
     + (mo?'<p>'+E(mo)+'</p>':'') + '</div>'
-    + '<a class="lienket" href="'+link+'">'+E(chuLink)+' '+MUI_TEN+'</a></div>';
+    + (link ? '<a class="lienket" href="'+link+'">'+E(chuLink)+' '+MUI_TEN+'</a>' : '')
+    + '</div>';
 }
 /* ═════════ HÌNH Ở CỘT PHẢI TRANG CHỦ ═════════ */
 /* Có ảnh thật trong cấu hình thì dùng ảnh, không thì vẽ theo kiểu đã chọn. */
@@ -1079,6 +1141,156 @@ function trangAlbum(id){
   h += '<p style="margin-top:32px"><a class="lienket" href="#/hinhanh">← Về danh sách album</a></p>'
     + '</div></section>';
   return h;
+}
+
+/* ═════════ SÂN CHƠI TOÁN HỌC ═════════ */
+
+/* số ngày từ hôm nay tới hạn nộp; âm là đã quá hạn */
+function conLai(hetHan){
+  var m = /^(\d{4})-(\d{2})-(\d{2})/.exec(String(hetHan||''));
+  if(!m) return null;
+  var h = new Date(+m[1], +m[2]-1, +m[3]);
+  var n = new Date();
+  n = new Date(n.getFullYear(), n.getMonth(), n.getDate());
+  return Math.round((h - n) / 86400000);
+}
+
+function dangMo(sc){
+  if(!la(sc.choNop)) return false;
+  var bd = conLai(sc.ngayBatDau);
+  var hh = conLai(sc.ngayHetHan);
+  if(bd !== null && bd > 0) return false;      /* chưa tới ngày bắt đầu */
+  if(hh !== null && hh < 0) return false;      /* đã quá hạn */
+  return true;
+}
+function la(v){ return v === true || String(v).trim().toUpperCase() === 'TRUE'; }
+
+/* chữ hiện ở góc thẻ: còn mấy ngày, hay đã kết thúc */
+function nhanHan(sc){
+  if(!la(sc.choNop)) return ['Đã đóng', 'xam'];
+  var bd = conLai(sc.ngayBatDau);
+  if(bd !== null && bd > 0) return ['Mở sau ' + bd + ' ngày', 'xam'];
+  var n = conLai(sc.ngayHetHan);
+  if(n === null) return ['Đang nhận bài', ''];
+  if(n < 0)  return ['Đã kết thúc', 'xam'];
+  if(n === 0) return ['Hôm nay là hạn cuối', ''];
+  if(n === 1) return ['Còn 1 ngày', ''];
+  return ['Còn ' + n + ' ngày', ''];
+}
+
+function baiNop(){ return (DL.duLieu && DL.duLieu.BaiNop) || []; }
+function baiCuaSan(id){
+  return baiNop().filter(function(x){ return String(x.idSanChoi) === String(id); });
+}
+
+function duongDanNop(id){
+  return API + (API.indexOf('?') >= 0 ? '&' : '?') + 'trang=guibai&id=' + encodeURIComponent(id);
+}
+
+function theSanChoi(sc){
+  var h = nhanHan(sc), so = baiCuaSan(sc.id).length;
+  return '<a class="sc" href="#/sanchoi/'+E(sc.id)+'">'
+    + (sc.anhBia ? '<span class="sc-anh"><img src="'+E(sc.anhBia)+'" alt="" loading="lazy"></span>' : '')
+    + '<span class="sc-chu">'
+    + '<span class="hang-the"><span class="nhan-o'+(h[1]?' '+h[1]:'')+'">'+E(h[0])+'</span>'
+    + (sc.khoi ? '<span class="nhan-o xam">Khối '+E(sc.khoi)+'</span>' : '') + '</span>'
+    + '<b>'+E(sc.tieuDe)+'</b>'
+    + (sc.moTa ? '<p>'+E(sc.moTa)+'</p>' : '')
+    + '<span class="sc-chan">'
+    + (sc.ngayHetHan ? '<span>Hạn nộp '+ngay(sc.ngayHetHan)+'</span>' : '<span></span>')
+    + '<span><b>'+so+'</b> bài đã nộp</span></span>'
+    + '</span></a>';
+}
+
+function trangSanChoi(){
+  var ds = bang('SanChoi');
+  if(!ds.length){
+    return '<section><div class="kh"><p class="rong">'
+      + 'Chưa có sân chơi nào đang mở. Các em đón xem thông báo của thầy cô nhé.</p></div></section>';
+  }
+  var mo = ds.filter(dangMo), xong = ds.filter(function(x){ return !dangMo(x); });
+  var h = '';
+  if(mo.length){
+    h += '<section><div class="kh">'
+      + mucDau('','ĐANG NHẬN BÀI','', '', '')
+      + '<div class="sc-luoi">' + mo.map(theSanChoi).join('') + '</div></div></section>';
+  }
+  if(xong.length){
+    h += '<section class="nen-sac"><div class="kh">'
+      + mucDau('','ĐÃ KẾT THÚC','Các đợt trước, vẫn xem lại được.', '', '')
+      + '<div class="sc-luoi">' + xong.map(theSanChoi).join('') + '</div></div></section>';
+  }
+  return h;
+}
+
+function trangSanChoiChiTiet(id){
+  var sc = bang('SanChoi').filter(function(x){ return String(x.id) === String(id); })[0];
+  if(!sc) return '<section><div class="kh"><p class="rong">Không tìm thấy sân chơi này.</p></div></section>';
+
+  var h = nhanHan(sc), mo = dangMo(sc), ds = baiCuaSan(sc.id);
+
+  var t = '<section><div class="kh">'
+    + '<h2 class="serif" style="font-size:clamp(24px,3.2vw,32px);font-weight:600;line-height:1.24;color:var(--sac-dam)">'
+    + E(sc.tieuDe) + '</h2>'
+    + '<div class="cd-meta" style="margin:14px 0 22px">'
+    + '<span class="nhan-o'+(h[1]?' '+h[1]:'')+'">'+E(h[0])+'</span>'
+    + (sc.khoi ? '<span>Dành cho khối <b>'+E(sc.khoi)+'</b></span>' : '')
+    + (sc.ngayBatDau ? '<span>Nhận bài từ <b>'+ngay(sc.ngayBatDau)+'</b></span>' : '')
+    + (sc.ngayHetHan ? '<span>Hạn nộp <b>'+ngay(sc.ngayHetHan)+'</b></span>' : '')
+    + '</div>';
+
+  if(sc.anhBia) t += '<img src="'+E(sc.anhBia)+'" alt="" class="sc-bia">';
+  if(sc.moTa)   t += '<p style="max-width:70ch;font-size:17.5px;color:var(--muc-2)">'+E(sc.moTa)+'</p>';
+  if(sc.theLe)  t += '<div class="noidung-bai">'+sc.theLe+'</div>';
+  if(sc.fileDe) t += '<p style="margin-top:18px"><a class="lienket" href="'+E(sc.fileDe)+'" '
+    + 'target="_blank" rel="noopener">Mở tệp đề bài '+MUI_TEN+'</a></p>';
+
+  /* khối gửi bài */
+  t += '<div class="sc-gui">';
+  if(mo){
+    t += '<b>Em đã làm xong bài?</b>'
+      + '<p>Làm ra giấy, ghi rõ họ tên và lớp, chụp ảnh thật rõ rồi bấm nút dưới đây. '
+      + 'Mỗi lần gửi tối đa 5 ảnh.</p>'
+      + (String(sc.coMa) === 'true' || sc.coMa === true
+          ? '<p class="ghichu"><span>Sân chơi này cần <b>mã tham gia</b> — thầy cô phụ trách sẽ đọc mã cho lớp.</span></p>'
+          : '')
+      + '<a class="nut dac" href="'+E(duongDanNop(sc.id))+'" target="_blank" rel="noopener">Gửi bài</a>';
+  } else {
+    t += '<b>Sân chơi này không còn nhận bài</b>'
+      + '<p>'+E(h[0] === 'Đã kết thúc' ? 'Đợt này đã kết thúc. Em đón xem đợt tiếp theo nhé.' : h[0])+'</p>';
+  }
+  t += '</div>';
+
+  /* danh sách học sinh đã tham gia */
+  t += '<div style="margin-top:38px"><span class="nhan">Đã tham gia</span>'
+    + '<h3 class="serif" style="font-size:23px;font-weight:600;margin-bottom:6px">'
+    + ds.length + ' học sinh đã nộp bài</h3>';
+  if(ds.length){
+    var lop = {}, tenLop = [];
+    ds.forEach(function(x){
+      var l = String(x.lop || 'Chưa ghi lớp').trim().toUpperCase();
+      if(!lop[l]){ lop[l] = []; tenLop.push(l); }
+      lop[l].push(x);
+    });
+    tenLop.sort(function(a,b){ return a.localeCompare(b, 'vi'); });
+    t += '<p style="color:var(--muc-3);font-size:15px;margin:0 0 18px">'
+      + tenLop.map(function(l){ return E(l) + ': ' + lop[l].length + ' em'; }).join(' · ') + '</p>'
+      + '<div class="hs-luoi">'
+      + tenLop.map(function(l){
+          var ten = lop[l].map(function(x){ return String(x.hoTen || '').trim(); })
+                          .sort(function(a,b){ return tenRieng(a).localeCompare(tenRieng(b), 'vi'); });
+          return '<div class="hs-lop"><b>'+E(l)+'</b><ol>'
+            + ten.map(function(x){ return '<li>'+E(x)+'</li>'; }).join('') + '</ol></div>';
+        }).join('')
+      + '</div>';
+  } else {
+    t += '<p class="rong">Chưa có bạn nào nộp bài. Em là người đầu tiên nhé.</p>';
+  }
+  t += '</div>';
+
+  t += '<p style="margin-top:32px"><a class="lienket" href="#/sanchoi">← Về danh sách sân chơi</a></p>'
+    + '</div></section>';
+  return t;
 }
 
 /* ═════════ KHÔNG GIAN VĂN HÓA HỒ CHÍ MINH ═════════ */
