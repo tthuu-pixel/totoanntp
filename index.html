@@ -1153,21 +1153,11 @@ function theThanhVien(g){
 
 function trangTo(){
   var gv = xepThanhVien(bang('GiaoVien'));
-  var ten = tenTo();
-  var vb = bang('VanBan').filter(function(v){
-    var cq = String(v.coQuan||'').trim();
-    return cq === ten || /^Tổ /.test(cq);
-  });
-  var h = '<section><div class="kh"><span class="nhan">Thành viên</span>'
-    + '<h2 class="serif" style="font-size:clamp(24px,3.2vw,31px);font-weight:600;margin-bottom:22px">Thầy cô trong tổ</h2>';
+  var h = '<section><div class="kh"><span class="nhan">Thành viên</span>';
   h += gv.length
     ? '<div class="tv-luoi">' + gv.map(theThanhVien).join('') + '</div>'
     : '<p class="rong">Danh sách thành viên đang được cập nhật.</p>';
   h += '</div></section>';
-
-  if(vb.length) h += '<section class="nen-sac"><div class="kh"><span class="nhan">Kế hoạch của tổ</span>'
-    + '<h2 class="serif" style="font-size:clamp(24px,3.2vw,31px);font-weight:600;margin-bottom:22px">Văn bản do tổ ban hành</h2>'
-    + dsVanBan(vb) + '</div></section>';
   return h;
 }
 
