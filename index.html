@@ -1147,7 +1147,7 @@ function trangHinhAnh(){
   var ds = dsAlbum();
   if(!ds.length){
     return '<section><div class="kh">'
-      + trinhChieu(anhMinhHoa(), true)
+      + trinhChieu(anhMinhHoa(), false)
       + '<p class="ghichu">Đây là ảnh minh hoạ. Album thật của tổ sẽ hiện ở đây ngay khi được đăng trong khu quản trị.</p>'
       + '</div></section>';
   }
@@ -1204,7 +1204,7 @@ function trangAlbum(id){
     + (a.video.length ? '<span><b>'+a.video.length+'</b> video</span>' : '')
     + '</div>'
     + (a.moTa ? '<p style="max-width:70ch;color:var(--muc-2);margin:0 0 26px">'+E(a.moTa)+'</p>' : '');
-  h += anh.length ? trinhChieu(anh, anh.length > 1) : '';
+  h += anh.length ? trinhChieu(anh, false) : '';
   if(a.video.length){
     h += '<div style="margin-top:34px"><span class="nhan">Video</span>' + veVideo(a.video) + '</div>';
   }
@@ -1457,7 +1457,7 @@ function trangTrienLam(id){
     + (t.ngay ? '<span>'+ngay(t.ngay)+'</span>' : '')
     + '<span><b>'+t.anh.length+'</b> ảnh</span></div>'
     + (t.moTa ? '<p style="max-width:70ch;color:var(--muc-2);margin:0 0 24px">'+E(t.moTa)+'</p>' : '')
-    + (anh.length ? trinhChieu(anh, anh.length > 1) : '<p class="rong">Triển lãm này chưa có ảnh.</p>')
+    + (anh.length ? trinhChieu(anh, false) : '<p class="rong">Triển lãm này chưa có ảnh.</p>')
     + '<p style="margin-top:32px"><a class="lienket" href="#/hcm">← Về Không gian văn hoá</a></p>'
     + '</div></section>';
 }
